@@ -1,0 +1,129 @@
+{
+  "carts": [
+    {
+      "product": {
+        "id": 1,
+        "name": "Auto Ford",
+        "description": "En 1969 el Mustang aumentó su potencia nuevamente y surgieron las versiones Boss y Mach 1.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg/800px-1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg",
+        "price": 10
+      },
+      "id": 1
+    },
+    {
+      "product": {
+        "id": 1,
+        "name": "Auto Ford",
+        "description": "En 1969 el Mustang aumentó su potencia nuevamente y surgieron las versiones Boss y Mach 1.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg/800px-1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg",
+        "price": 10
+      },
+      "id": 2
+    },
+    {
+      "product": {
+        "id": 3,
+        "name": "Auto Ford",
+        "description": "En 1969 el Mustang aumentó su potencia nuevamente y surgieron las versiones Boss y Mach 1.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg/800px-1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg",
+        "price": 100
+      },
+      "id": 3
+    },
+    {
+      "product": {
+        "id": 1,
+        "name": "Auto Ford",
+        "description": "En 1969 el Mustang aumentó su potencia nuevamente y surgieron las versiones Boss y Mach 1.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg/800px-1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg",
+        "price": 10
+      },
+      "id": 4
+    },
+    {
+      "product": {
+        "id": 5,
+        "name": "Auto Ford",
+        "description": "En 1969 el Mustang aumentó su potencia nuevamente y surgieron las versiones Boss y Mach 1.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg/800px-1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg",
+        "price": 10.2
+      },
+      "id": 5
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Auto Ford",
+      "description": "En 1969 el Mustang aumentó su potencia nuevamente y surgieron las versiones Boss y Mach 1.",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg/800px-1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg",
+      "price": 10
+    },
+    {
+      "id": 2,
+      "name": "Auto Ford",
+      "description": "En 1969 el Mustang aumentó su potencia nuevamente y surgieron las versiones Boss y Mach 1.",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg/800px-1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg",
+      "price": 10
+    },
+    {
+      "id": 3,
+      "name": "Auto Ford",
+      "description": "En 1969 el Mustang aumentó su potencia nuevamente y surgieron las versiones Boss y Mach 1.",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg/800px-1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg",
+      "price": 100
+    },
+    {
+      "id": 4,
+      "name": "Auto Ford",
+      "description": "En 1969 el Mustang aumentó su potencia nuevamente y surgieron las versiones Boss y Mach 1.",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg/800px-1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg",
+      "price": 200
+    },
+    {
+      "id": 5,
+      "name": "Auto Ford",
+      "description": "En 1969 el Mustang aumentó su potencia nuevamente y surgieron las versiones Boss y Mach 1.",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg/800px-1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg",
+      "price": 10.2
+    },
+    {
+      "id": 6,
+      "name": "Auto Ford",
+      "description": "En 1969 el Mustang aumentó su potencia nuevamente y surgieron las versiones Boss y Mach 1.",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg/800px-1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg",
+      "price": 200.2
+    },
+    {
+      "id": 7,
+      "name": "Auto Ford",
+      "description": "En 1969 el Mustang aumentó su potencia nuevamente y surgieron las versiones Boss y Mach 1.",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg/800px-1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg",
+      "price": 300.2
+    },
+    {
+      "id": 8,
+      "name": "Auto Ford",
+      "description": "En 1969 el Mustang aumentó su potencia nuevamente y surgieron las versiones Boss y Mach 1.",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg/800px-1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg",
+      "price": 300
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

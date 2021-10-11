@@ -2,16 +2,16 @@
     
     <img class="bd-placeholder-img card-img-top p-2"
      width="100%" 
-     src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg/800px-1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg"/>   
+     [src]="productItem.imageUrl"/>   
     
      <div class="card-body">
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <p class="card-text">{{ productItem.description}}</p>
       <div class="d-flex justify-content-between align-items-center">
         <div class="btn-group">
-          <button type="button" class="btn btn-sm btn-outline-secondary">Add</button>
+          <button type="button" class="btn btn-sm btn-outline-secondary" (click)="addToCart()">Add</button>
           <button type="button" class="btn btn-sm btn-outline-secondary">Detail</button>
         </div>
-        <small class="text-muted">{{254  |currency: "S/"}}</small>
+        <small class="text-muted">{{ productItem.price  |currency: "S/"}}</small>
       </div>
     </div>
 </div>
