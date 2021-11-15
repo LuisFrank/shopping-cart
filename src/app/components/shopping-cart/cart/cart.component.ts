@@ -19,11 +19,9 @@ export class CartComponent implements OnInit {
   constructor(private msg:MessengerService,
               private cartService:CartService) { }
 
-  ngOnInit(): void {
-   
+  ngOnInit(): void {   
     this.handleSubscription()
-    this.loadCartItems()
-  
+    this.loadCartItems()  
   }
 
   handleSubscription(){

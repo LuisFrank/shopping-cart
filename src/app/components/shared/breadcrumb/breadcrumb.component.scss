@@ -1,0 +1,20 @@
+nav{
+    li{
+        a{
+            text-decoration: none;
+        }
+
+       
+    }
+
+    li:not(.active){
+        a{
+            color: red;
+        }        
+          
+       
+    }
+    
+
+   
+}

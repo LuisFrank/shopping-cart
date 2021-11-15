@@ -1,0 +1,17 @@
+nav{
+    ul{
+        li{
+            a{
+                border-radius: 50%;
+            }
+
+            margin-left: 2px;
+            margin-right: 2px;
+        }
+    }
+}
+
+.dropdown-menu-end{
+    right: 0;
+    left: auto;
+}

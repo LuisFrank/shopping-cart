@@ -1,0 +1,79 @@
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <div class="guest-form-card card">
+            <div class="card-header text-center">
+                <h3>Register here</h3>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="registerForm" (ngSubmit)="register()">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input 
+                        type="text" 
+                        class="form-control"  
+                        id="name" 
+                        [ngClass]="{'is-invalid': registerForm.get('name').touched && registerForm.get('name').invalid}"
+                        formControlName="name" />
+                        <span class="invalid-feedback">Name can't be blank</span>                      
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input 
+                        type="email" 
+                        class="form-control" 
+                        [ngClass]="{'is-invalid': registerForm.get('email').touched && registerForm.get('email').invalid}"
+                        id="email" 
+                        formControlName="email"/>
+                        <span class="invalid-feedback">
+                            <span *ngIf="registerForm.get('email').hasError('required')"> Email can't be blank</span>   
+                            <span *ngIf="registerForm.get('email').hasError('email')"> Email must be valid</span>   
+                        </span>
+                        
+                    </div>  
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input 
+                        class="form-control"  
+                        id="username"  
+                        [ngClass]="{'is-invalid': registerForm.get('username').touched && registerForm.get('username').invalid}"
+                        formControlName="username"/>
+                        <span class="invalid-feedback">Username can't be blank</span>                      
+                    </div>  
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input 
+                        type="password" 
+                        class="form-control" 
+                         id="password" 
+                         [ngClass]="{'is-invalid': registerForm.get('password').touched && registerForm.get('password').invalid}"
+                         formControlName="password"/>
+                         {{ registerForm.get('password').errors | json}}
+                        <span class="invalid-feedback">                            
+                            <span *ngIf="registerForm.get('password').hasError('required')">Password can't be blank</span>
+                            <span *ngIf="registerForm.get('password').hasError('symbol')">Password must contain @</span>
+                            <span *ngIf="registerForm.get('password').hasError('minlength')">Password must contain minimum 4 characters</span>
+                        </span>                      
+                    </div>    
+                    <div class="mb-3">
+                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                        <input 
+                        type="password" 
+                        class="form-control" 
+                        id="confirmPassword" 
+                        [ngClass]="{'is-invalid': registerForm.get('confirmPassword').touched && registerForm.get('confirmPassword').invalid}"
+                        formControlName="confirmPassword"/>
+                        <span class="invalid-feedback">ConfirmPassword must match</span>                      
+                    </div>    
+                    <!-- <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="remember" name="remember">
+                        <label class="form-check-label" for="remember">Remember</label>
+                    </div>             -->
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary" [disabled]="registerForm.invalid">Register</button>            
+                    </div>  
+
+                </form>
+            </div>
+        </div>        
+    </div>
+</div>

@@ -1,0 +1,47 @@
+ul{
+    li{
+       a{
+           font-size: 13px;
+           color: black;
+           letter-spacing: 0.1em;
+       }
+       a:hover{
+        color: red;
+       }
+    }
+}
+
+a:hover{
+    color: red;
+   }
+// .collapsing {
+//     height: 0;
+//     overflow: hidden;
+//     transition: height .35s ease;
+// }
+
+.mostrar{
+    display: block;
+    height: auto;
+    overflow: hidden;
+    // transition: height .200s;
+    // opacity: 600ms 0ms;
+    // transition: max-height 0s linear 0s, opacity 1000ms;; // note that we're 
+    transition: height .35s ease;
+    -webkit-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+}
+
+
+.ocultar{
+
+    &:not(.mostrar) {
+        display: none;
+      }
+    // display: none;
+    max-height:0;
+    overflow: hidden;
+    transition: height .200s,linear 300ms, opacity 1000ms;
+    // transition: height 0ms 400ms, opacity 400ms 0ms;
+}

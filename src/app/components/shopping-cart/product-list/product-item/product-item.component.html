@@ -1,17 +1,20 @@
-<div class="card mb-4 shadow-sm">
-    
-    <img class="bd-placeholder-img card-img-top p-2"
+<div class="card mb-4 shadow-sm ">
+    <img class="bd-placeholder-img card-img-top"
      width="100%" 
      [src]="productItem.imageUrl"/>   
     
-     <div class="card-body">
-      <p class="card-text">{{ productItem.description}}</p>
-      <div class="d-flex justify-content-between align-items-center">
-        <div class="btn-group">
-          <button type="button" class="btn btn-sm btn-outline-secondary" (click)="addToCart()">Add</button>
-          <button type="button" class="btn btn-sm btn-outline-secondary">Detail</button>
-        </div>
-        <small class="text-muted">{{ productItem.price  |currency: "S/"}}</small>
+     <div class="card-body text-center p-4">
+      <!-- <p class="card-text">{{ productItem.description}}</p>     -->
+      <p class="card-text">Ford65</p>                    
+      <p class="text-muted">{{ productItem.price  |currency: "S/"}}</p>
+      
+      <div class="btn-group">
+        <button type="button" class="btn btn-sm btn-outline-secondary" (click)="addToCart()">Add</button>
+        <button type="button" class="btn btn-sm btn-outline-secondary">Detail</button>
+      </div>
+      <div>
+        <fa-icon [icon]="addedProductToList ?  faHeart: fasHeart" class="heart" (click)="addedProductToList ? removeFromWishList() : addTowishList()"></fa-icon>
       </div>
     </div>
+
 </div>

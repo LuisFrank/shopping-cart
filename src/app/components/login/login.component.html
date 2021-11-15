@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <div class="guest-form-card card">
+            <div class="card-header text-center">
+                <h3>Login</h3>
+            </div>
+            <div class="card-body">
+                <form #loginForm="ngForm" (ngSubmit)="loginForm.valid && login(username)">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="username" class="form-control" [ngClass]="{'is-invalid': loginForm.touched && username.invalid}" id="username" name="username" #username="ngModel" [(ngModel)]="model.username" required />
+                        <span class="invalid-feedback">Username can't be blank</span>
+                        <!-- <p>Valid:: {{ username.valid}} </p>
+                        <p>InValid:: {{ username.invalid}} </p>
+                        <p>Touched:: {{ username.touched}} </p>
+                        <p>Dirty:: {{ username.dirty}} </p>
+                        <p>UnTouched:: {{ username.untouched}} </p>
+                        <p>pristine:: {{ username.pristine}} </p> -->
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" [ngClass]="{'is-invalid': loginForm.touched && password.invalid}" id="password"  name="password"  #password="ngModel" [(ngModel)]="model.password" required/>
+                        <span class="invalid-feedback">Password can't be blank</span>
+                    </div>     
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="remember" name="remember" #remember="ngModel"  [(ngModel)]="model.remember">
+                        <label class="form-check-label" for="remember">Remember</label>
+                    </div>            
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>            
+                    </div>  
+
+                </form>
+            </div>
+        </div>        
+    </div>
+</div>

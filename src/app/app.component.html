@@ -1,11 +1,14 @@
 <app-nav></app-nav>
 
 <div class="container">
-
+  <div class="row">
+  <app-breadcrumb></app-breadcrumb>
+  </div>
   <div class="row">
     <div class="col">
-      <app-shopping-cart>        
-      </app-shopping-cart>
+      <router-outlet></router-outlet>
+      <!-- <app-shopping-cart>        
+      </app-shopping-cart> -->
     </div>
   </div>
 

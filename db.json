@@ -1,4 +1,9 @@
 {
+  "wishlist": [
+    {
+      "id": 2
+    }
+  ],
   "carts": [
     {
       "product": {
@@ -49,6 +54,56 @@
         "price": 10.2
       },
       "id": 5
+    },
+    {
+      "product": {
+        "id": 3,
+        "name": "Auto Ford",
+        "description": "En 1969 el Mustang aumentó su potencia nuevamente y surgieron las versiones Boss y Mach 1.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg/800px-1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg",
+        "price": 100
+      },
+      "id": 6
+    },
+    {
+      "product": {
+        "id": 3,
+        "name": "Auto Ford",
+        "description": "En 1969 el Mustang aumentó su potencia nuevamente y surgieron las versiones Boss y Mach 1.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg/800px-1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg",
+        "price": 100
+      },
+      "id": 7
+    },
+    {
+      "product": {
+        "id": 3,
+        "name": "Auto Ford",
+        "description": "En 1969 el Mustang aumentó su potencia nuevamente y surgieron las versiones Boss y Mach 1.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg/800px-1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg",
+        "price": 100
+      },
+      "id": 8
+    },
+    {
+      "product": {
+        "id": 3,
+        "name": "Auto Ford",
+        "description": "En 1969 el Mustang aumentó su potencia nuevamente y surgieron las versiones Boss y Mach 1.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg/800px-1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg",
+        "price": 100
+      },
+      "id": 9
+    },
+    {
+      "product": {
+        "id": 3,
+        "name": "Auto Ford",
+        "description": "En 1969 el Mustang aumentó su potencia nuevamente y surgieron las versiones Boss y Mach 1.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg/800px-1969_Ford_Mustang_Mach_1_%2837901276352%29.jpg",
+        "price": 100
+      },
+      "id": 10
     }
   ],
   "products": [
