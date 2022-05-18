@@ -1,0 +1,5 @@
+FROM node:14.17.4-alpine3.14
+RUN npm install -g json-server
+RUN mkdir -p /app
+WORKDIR /app
+COPY db.json /app/db.json

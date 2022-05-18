@@ -21,6 +21,10 @@ import { PageNotFoundComponent } from './components/shared/page-not-found/page-n
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BreadcrumbComponent } from './components/shared/breadcrumb/breadcrumb.component';
 import { HomeComponent } from './components/home/home.component';
+import { SingleProductComponent } from './components/shopping-cart/single-product/single-product.component';
+import { ModalComponent } from './components/shared/modal/modal.component';
+import { CartDetailComponent } from './components/shopping-cart/cart-detail/cart-detail.component';
+import { CheckoutComponent } from './components/shopping-cart/checkout/checkout.component';
 
 
 
@@ -41,7 +45,11 @@ import { HomeComponent } from './components/home/home.component';
     RegisterComponent,
     PageNotFoundComponent,
     BreadcrumbComponent,
-    HomeComponent
+    HomeComponent,
+    SingleProductComponent,
+    ModalComponent,
+    CartDetailComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,

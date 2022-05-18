@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  front-shopping-cart:
+    build: .   
+    volumes:
+      - .:/app:rw
+      - /app/node_modules
+    ports:
+      - '4200:4200'
+    command: sh -c "npm start"
+  back-shopping-cart:
+    depends_on: 
+      - front-shopping-cart
+    build: 
+      context: .
+      dockerfile: Dockerfile.dbserver
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./db.json:/app/db.json:rw
+    command: json-server --watch db.json --host 0.0.0.0

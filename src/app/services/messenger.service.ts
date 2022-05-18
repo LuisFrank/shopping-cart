@@ -6,16 +6,24 @@ import { Subject } from 'rxjs';
 export class MessengerService {
 
   subject = new Subject();
+  subjectCart = new Subject();
 
   constructor() { }
 
   sendMessage(product:any){
 
-    console.log("product",product);    
     this.subject.next(product);
   }
 
   getMessage(){
     return this.subject.asObservable();
+  }
+
+  sendMessageDownCart(element:any){
+    this.subjectCart.next();
+  }
+
+  getMessageDownCart(){
+    return this.subjectCart.asObservable();
   }
 }

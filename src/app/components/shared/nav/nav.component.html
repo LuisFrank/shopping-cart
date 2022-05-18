@@ -1,36 +1,49 @@
 <div class="container"> 
   <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light bg-light justify-content-between mb-4"> -->
-    <nav class="navbar navbar-expand-xl navbar-light bg-light mb-4">
+  <nav class="navbar navbar-expand-xl navbar-light bg-light mb-4">
     <div class="container-fluid">
       <a href="/" class="navbar-brand d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none"> 
       <!-- <a href="/" class="navbar-brand">     -->
         <app-header></app-header>
       </a> 
-      <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button> -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" (click)="clickColapse()"></span>
+      </button>
+      <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
       [attr.aria-expanded]="!isMenuCollapsed" aria-label="Toggle navigation" (click)="isMenuCollapsed = !isMenuCollapsed" [class.collapsed]='!isMenuCollapsed'>
         <span class="navbar-toggler-icon"></span>
-      </button>
+      </button> -->
       
-    
-      <div class="navbar-collapse collapse ms-5" id="navbarsExample10" [class.show] = "!isMenuCollapsed">
+     
+      <div #navbarsExample10 class="navbar-collapse collapse ms-5">
         <ul class="navbar-nav me-auto">
           <li class="nav-item p-2"><a href="#" class="nav-link active" aria-current="page" [routerLink]="['/home']">HOME</a></li>
           <li class="nav-item p-2"><a href="#" class="nav-link active" aria-current="page" [routerLink]="['/shop']">SHOP</a></li>
-          <li class="nav-item p-2"><a href="#" class="nav-link">CATALOGUE</a></li>
+          <li class="nav-item p-2"><a href="#" class="nav-link active" aria-current="page" [routerLink]="['/singleproduct']">SINGLE</a></li>
+          <li class="nav-item p-2"><a href="#" class="nav-link">SINGLE</a></li>
           <li class="nav-item p-2"><a href="#" class="nav-link">NEW ARRIVALS</a></li>
           <li class="nav-item p-2"><a href="#" class="nav-link">CONTACT</a></li>
-        </ul>
-        <div class="col-md-3 text-end">
-          <a href="" class="btn" [routerLink]="['/register']"><fa-icon [icon]="faHeart"></fa-icon></a>
-          <a href="" class="btn" [routerLink]="['/login']"><fa-icon [icon]="faSearch"></fa-icon></a>
-          <a href="" class="btn" [routerLink]="['/login']"><fa-icon [icon]="faShoppingBag"></fa-icon></a>
-          <!-- <a href="" class="btn" [routerLink]="['/register']"><fa-icon [icon]="faHeart"></fa-icon>Sign up</a>
-          <a href="" class="btn" [routerLink]="['/login']"><fa-icon [icon]="faSearch"></fa-icon> Login</a>
-          <a href="" class="btn" [routerLink]="['/login']"><fa-icon [icon]="faShoppingBag"></fa-icon> Login</a> -->
-        </div>
+        </ul>       
       </div> 
-    </div>  
-  </nav>
+      <div class="col-md-3 text-end">
+        <a href="" class="btn" [routerLink]="['/register']"><fa-icon [icon]="faHeart"></fa-icon></a>
+        <a href="" class="btn" [routerLink]="['/login']"><fa-icon [icon]="faSearch"></fa-icon></a>
+        <a href="" class="btn position-relative" [routerLink]="['/cart-detail']">           
+          <fa-icon [icon]="faShoppingBag">
+           
+          </fa-icon>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" *ngIf="countCart> 0">
+            {{countCart}}
+            <span class="visually-hidden">unread messages</span>
+          </span>
+        </a>
+        <!-- <a href="" class="btn" [routerLink]="['/register']"><fa-icon [icon]="faHeart"></fa-icon>Sign up</a>
+        <a href="" class="btn" [routerLink]="['/login']"><fa-icon [icon]="faSearch"></fa-icon> Login</a>
+        <a href="" class="btn" [routerLink]="['/login']"><fa-icon [icon]="faShoppingBag"></fa-icon> Login</a> -->
+      </div> 
+
+     
+    </div> 
+   
+  </nav>  
+</div>

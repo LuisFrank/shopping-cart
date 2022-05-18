@@ -1,0 +1,121 @@
+<div class="container">
+    <div class="row mb-5">
+        <div class="col-md-12">        
+            <div class="position-relative overflow-auto">
+                <table id="table-cart" class="table table-bordered">
+                    <thead>
+                        <tr class="">
+                            <th class="col set-with-image">Product</th>
+                            <th class="col">Name</th>
+                            <th class="col">Price</th>
+                            <th class="col">Quantity</th>
+                            <th class="col">Total</th>
+                            <th class="col">Remove</th>                              
+                        </tr>
+                    </thead>
+                    <tbody>                                                        
+                        <tr  *ngFor="let product of products">
+                            <td class="set-with-image">                                    
+                                    <img src="{{product.imageURL}}" class="rounded img-fluid"
+                                        alt="IMG">                                   
+                            </td>
+                            <td class="">{{product.productName}}</td>
+                            <td class="">{{product.price}}</td>
+                            <td >
+                                <div class="d-flex justify-content-center">
+                                   
+                                    <div class="input-group" style="max-width: 120px;">
+                                        <div class="input-group-prepend">
+                                        <button class="btn btn-outline-primary btn-up js-btn-minus" (click)="upQuantity(product)" type="button">−</button>
+                                        </div>
+                                        <input type="text" class="form-control input-quantity text-center" value="{{product.quantity}}" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                        <div class="input-group-append">
+                                        <button class="btn btn-outline-primary btn-down js-btn-plus" (click)="downQuantity(product)" type="button">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                              
+                            </td>
+                            <td class="">$ 36.00</td>
+                            <td>
+                                <a href="#" class="btn btn-primary height-auto btn-sm" (click)="removeItemFromCart(product)">X</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+                   
+              
+                <!-- <div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
+                    <div class="flex-w flex-m m-r-20 m-tb-5">
+                        <input class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" type="text" name="coupon"
+                            placeholder="Coupon Code">
+                        <div class="flex-c-m stext-101 cl2 size-118 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5">
+                            Apply coupon
+                        </div>
+                    </div>
+                    <div class="flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10">
+                        Update Cart
+                    </div>
+                </div> -->
+           
+        </div>
+    </div>
+    <div class="row mb-5">
+        <div class="col-md-6">
+            <div class="row mb-5">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <button class="btn btn-primary btn-lg btn-block">Update Cart</button>
+                </div>
+                <div class="col-md-6">
+                    <button class="btn btn-outline-primary btn-lg btn-block">Continue Shopping</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <label class="text-black h4" for="coupon">Coupon</label>
+                    <p>Enter your coupon code if you have one.</p>
+                </div>
+                <div class="col-md-8 mb-3 mb-md-0">
+                    <input type="text" class="form-control py-3" id="coupon" placeholder="Coupon Code">
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-primary btn-sm">Apply Coupon</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row justify-content-end">
+                <div class="col-md-7">
+                    <div class="row">
+                        <div class="col-md-12 text-right border-bottom mb-5">
+                            <h3 class="text-black h4 text-uppercase">Cart Totals</h3>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <span class="text-black">Subtotal</span>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <strong class="text-black">$230.00</strong>
+                        </div>
+                    </div>
+                    <div class="row mb-5">
+                        <div class="col-md-6">
+                            <span class="text-black">Total</span>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <strong class="text-black">$230.00</strong>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button class="btn btn-primary btn-lg py-3 btn-block" [routerLink]="['/checkout']">Proceed To
+                                Checkout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

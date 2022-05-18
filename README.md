@@ -29,3 +29,16 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 #up server
 json-server --watch db.json
+
+#dockerizar
+https://amoelcodigo.com/docker-angular-app/
+https://www.angularfix.com/2022/04/docker-container-doesn-reload-angular.html
+
+#Construir imagen
+docker build -t shopping-cart .
+
+#Correr contenedor
+docker run -d -it -p 80:80 shopping-cart
+
+#generar componente o servicio dentro de docker-compose
+#docker-compose run front-shopping-cart ng g service services/cartlocalstorage 

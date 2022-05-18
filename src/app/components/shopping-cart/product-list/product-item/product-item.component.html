@@ -1,20 +1,22 @@
 <div class="card mb-4 shadow-sm ">
+    <a  [routerLink]="['/single-product/',productItem.id]"  routerLinkActive="active">
     <img class="bd-placeholder-img card-img-top"
      width="100%" 
      [src]="productItem.imageUrl"/>   
-    
-     <div class="card-body text-center p-4">
+    </a>
+    <a href="#" class="nav-link active" aria-current="page" [routerLink]="['/home']"></a>
+    <div class="card-body text-center p-4">
       <!-- <p class="card-text">{{ productItem.description}}</p>     -->
-      <p class="card-text">Ford65</p>                    
-      <p class="text-muted">{{ productItem.price  |currency: "S/"}}</p>
+      <a [routerLink]="['/single-product/',productItem.id]"><h5 class="text-muted">Ford65</h5></a>        
+      <p>Finding perfect products</p>           
+      <strong class="text-muted">{{ productItem.price  |currency: "S/"}}</strong>
       
-      <div class="btn-group">
+      <!-- <div class="btn-group">
         <button type="button" class="btn btn-sm btn-outline-secondary" (click)="addToCart()">Add</button>
         <button type="button" class="btn btn-sm btn-outline-secondary">Detail</button>
-      </div>
-      <div>
+      </div> -->
+      <!-- <div>
         <fa-icon [icon]="addedProductToList ?  faHeart: fasHeart" class="heart" (click)="addedProductToList ? removeFromWishList() : addTowishList()"></fa-icon>
-      </div>
+      </div> -->
     </div>
-
 </div>

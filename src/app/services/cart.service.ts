@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { CartItem } from '../models/cart-item';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { cartURl } from '../config/api';
+import { cartURl, deleteCartUrl, updateCartURl,  } from '../config/api';
 import { Product } from '../models/product';
 import { map } from 'rxjs/operators'
 @Injectable({
@@ -42,4 +42,28 @@ export class CartService {
   addProductToCart(product: Product): Observable<any>{
     return this.http.post(cartURl,{product});
   }
+
+  removeProductToCart(cartItem: any): Observable<any>{
+    return this.http.delete(deleteCartUrl + '/'+ cartItem.id)
+  }
+
+  upQuantity(cartItem: any): Observable<any>{   
+    var replaceURl = updateCartURl.replace(':id',cartItem.id);
+    console.log('replaceURl',replaceURl);
+    return this.http.patch(replaceURl,{
+      "quantity": cartItem.quantity
+      });
+  }
+
+  downQuantity(cartItem:any): Observable<any>{
+    var replaceURl = updateCartURl.replace(':id',cartItem.id);
+    console.log('replaceURl',replaceURl);
+    return this.http.patch(replaceURl,{
+      "quantity": cartItem.quantity
+      });
+  }
+
+  // getCartItemsDetail(): Observable<Product[]>{
+  //   return this.http.get<Product[]>(cartURl);
+  // }
 }

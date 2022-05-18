@@ -1,0 +1,45 @@
+
+.set-with-image{
+    width: 200px;
+}
+
+.img-fluid{
+   max-width: 70%;
+   height: auto;
+}
+
+#table-cart{
+    th{
+        padding: 30px        ;
+            text-align: center;
+            border-width: 1px!important;
+            vertical-align: middle;
+            color: #212529;
+            font-size: 18px;
+    }
+    td{
+        padding: 20px;
+        text-align: center;
+        vertical-align: middle;
+        color: #212529;
+    }
+}
+
+.input-group-prepend {
+    margin-right: -1px;
+}
+.input-group-append {
+    margin-left: -1px!important;
+}
+
+// .btn-up{
+
+// }
+
+// .btn-down{
+
+// }
+
+// .input-quantity{
+
+// }
