@@ -14,31 +14,31 @@
                         </tr>
                     </thead>
                     <tbody>                                                        
-                        <tr  *ngFor="let product of products">
+                        <tr  *ngFor="let product of productsLS">
                             <td class="set-with-image">                                    
                                     <img src="{{product.imageURL}}" class="rounded img-fluid"
                                         alt="IMG">                                   
                             </td>
                             <td class="">{{product.productName}}</td>
-                            <td class="">{{product.price}}</td>
+                            <td class="">{{product.price | number:  '1.2-2' | currency : 'PEN' : 'S/'}}</td>
                             <td >
                                 <div class="d-flex justify-content-center">
                                    
                                     <div class="input-group" style="max-width: 120px;">
                                         <div class="input-group-prepend">
-                                        <button class="btn btn-outline-primary btn-up js-btn-minus" (click)="upQuantity(product)" type="button">−</button>
+                                        <button class="btn btn-outline-primary btn-down js-btn-minus" (click)="downQuantity(product)" type="button">−</button>
                                         </div>
                                         <input type="text" class="form-control input-quantity text-center" value="{{product.quantity}}" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
                                         <div class="input-group-append">
-                                        <button class="btn btn-outline-primary btn-down js-btn-plus" (click)="downQuantity(product)" type="button">+</button>
+                                        <button class="btn btn-outline-primary btn-up js-btn-plus" (click)="upQuantity(product)" type="button">+</button>
                                         </div>
                                     </div>
                                 </div>
                               
                             </td>
-                            <td class="">$ 36.00</td>
+                            <td class="">{{product.subtotal | number:  '1.2-2' | currency : 'PEN' : 'S/'}}</td>
                             <td>
-                                <a href="#" class="btn btn-primary height-auto btn-sm" (click)="removeItemFromCart(product)">X</a>
+                                <a [routerLink]="" class="btn btn-primary height-auto btn-sm" (click)="removeItemFromLocalStorate(product)">X</a>
                             </td>
                         </tr>
                     </tbody>
@@ -64,15 +64,17 @@
     <div class="row mb-5">
         <div class="col-md-6">
             <div class="row mb-5">
-                <div class="col-md-6 mb-3 mb-md-0">
+                <!-- <div class="col-md-6 mb-3 mb-md-0">
                     <button class="btn btn-primary btn-lg btn-block">Update Cart</button>
-                </div>
+                </div> -->
                 <div class="col-md-6">
-                    <button class="btn btn-outline-primary btn-lg btn-block">Continue Shopping</button>
+                    <!-- [routerLink]="['/shop'] -->
+                    <a href="#" class="btn btn-outline-primary btn-lg btn-block" [routerLink]="['/shop']">Continue Shopping</a>
+                    <!-- <button class="btn btn-outline-primary btn-lg btn-block">Continue Shopping</button> -->
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
+                <!-- <div class="col-md-12">
                     <label class="text-black h4" for="coupon">Coupon</label>
                     <p>Enter your coupon code if you have one.</p>
                 </div>
@@ -81,7 +83,7 @@
                 </div>
                 <div class="col-md-4">
                     <button class="btn btn-primary btn-sm">Apply Coupon</button>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="col-md-6">
@@ -97,7 +99,7 @@
                             <span class="text-black">Subtotal</span>
                         </div>
                         <div class="col-md-6 text-right">
-                            <strong class="text-black">$230.00</strong>
+                            <strong class="text-black">{{this.subtotal | number:  '1.2-2'| currency : 'PEN' : 'S/'  }}</strong>
                         </div>
                     </div>
                     <div class="row mb-5">
@@ -105,7 +107,7 @@
                             <span class="text-black">Total</span>
                         </div>
                         <div class="col-md-6 text-right">
-                            <strong class="text-black">$230.00</strong>
+                            <strong class="text-black">{{this.total | number:  '1.2-2'| currency : 'PEN' : 'S/' }}</strong>
                         </div>
                     </div>
                     <div class="row">

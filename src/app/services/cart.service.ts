@@ -9,8 +9,10 @@ import { map } from 'rxjs/operators'
   providedIn: 'root'
 })
 export class CartService {
+  
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {     
+   }
 
   getCartItems(): Observable<CartItem[]> {
     //TODO: Mapping the obtained result to our CartItem props(pipe() and map())
@@ -30,7 +32,7 @@ export class CartService {
               } 
           
               if(!productExists){
-                cartItems.push( new CartItem(item.id,item.product));
+                cartItems.push( new CartItem(item.id,item.product,1,0));
                  
               }
           }

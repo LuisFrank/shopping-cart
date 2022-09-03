@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CartItem } from 'src/app/models/cart-item';
 import { Product } from 'src/app/models/product';
 import { CartService } from 'src/app/services/cart.service';
+import { CartlocalstorageService } from 'src/app/services/cartlocalstorage.service';
 import { MessengerService } from 'src/app/services/messenger.service';
 
 @Component({
@@ -12,10 +13,20 @@ import { MessengerService } from 'src/app/services/messenger.service';
 export class CartDetailComponent implements OnInit {
 
   products: CartItem[] = [];
-  constructor(private cartService:CartService,private msg:MessengerService) { }
+  productsLS: CartItem[] = [];
+  subtotal: number = 0;
+  total: number = 0;
+  constructor(private cartService:CartService,
+              private msg:MessengerService,
+              private cartLocalStorageService:CartlocalstorageService) 
+              {
+
+               }
 
   ngOnInit(): void {
-    this.loadCartItems()
+    // this.loadCartItems();
+    this.loadCardItemsLocalStorage();
+    this.calculateCartTotal();
   }
 
   loadCartItems(){
@@ -23,13 +34,21 @@ export class CartDetailComponent implements OnInit {
       this.products = items;
       this.calculateCartTotal();
     })
-  } 
+  }
+  
+  loadCardItemsLocalStorage(){
+   this.productsLS = this.cartLocalStorageService.getCartData();
+   console.log("loadCardItemsLocalStorage",this.productsLS);
+  }
 
   calculateCartTotal(){
-    // this.cartTotal = 0;
-    // this.cartItems.forEach((element:any) => {
-    //   this.cartTotal+= (element.quantity * element.price );
-    // });
+    this.subtotal = 0;
+    this.total = 0;
+    this.productsLS.forEach((element:any) => {
+      element.subtotal = (element.quantity * element.price );
+      this.subtotal +=  element.subtotal;
+      this.total = this.subtotal;
+    });
   }
 
   removeItemFromCart(cartItem:any){
@@ -43,15 +62,31 @@ export class CartDetailComponent implements OnInit {
     return false;   
   }
 
+  removeItemFromLocalStorate(cartItem:any){
+    this.cartLocalStorageService.removeItem(cartItem);
+    this.loadCardItemsLocalStorage();
+    this.calculateCartTotal();
+  }
+
 
   upQuantity(cartItem:any){
-    
-
+    console.log("upQuantity",cartItem);
+    this.cartLocalStorageService.UpQuantity(cartItem);
+    this.loadCardItemsLocalStorage();
+    this.calculateCartTotal();
+    this.msg.sendMessageDownCart(cartItem);  
   }
 
   downQuantity(cartItem:any){
-
+    console.log("upQuantity",cartItem);
+    if(cartItem.quantity > 0){
+      this.cartLocalStorageService.DownQuantity(cartItem);
+      this.loadCardItemsLocalStorage();
+      this.calculateCartTotal();
+      this.msg.sendMessageDownCart(cartItem); 
+    }   
   }
+
 
 
 

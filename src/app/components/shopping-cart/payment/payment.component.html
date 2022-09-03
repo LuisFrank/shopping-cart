@@ -1,0 +1,184 @@
+<div class="row">
+    <div class="col-md-7 mb-5 mb-md-0">
+        <div class="row mb-4">
+        <h2 class="h3 mb-3 text-black">MÉTODOS DE PAGO</h2>
+        <div class="p-5 p-lg-5 border"> 
+            <div class="card">
+                <div class="card-header p-0">                    
+                    <div class="form-check">                        
+                        <label class="form-check-label p-3" for="flexRadioDefault1">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" (click)="collapseCreditCard()">
+                            <span>Tarjeta de credito</span>
+                            <div class="icons">
+                                <img src="https://i.imgur.com/2ISgYja.png" width="30">
+                                <img src="https://i.imgur.com/W1vtnOV.png" width="30">
+                                <img src="https://i.imgur.com/35tC99g.png" width="30">
+                                <img src="https://i.imgur.com/2ISgYja.png" width="30">
+                            </div>         
+                        </label>
+                    </div>                      
+                </div>
+                <div #collapseCreditCardContent class="accordion-collapse collapse hide" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body payment-card-body">
+                      <div class="mb-3 row">
+                          <div class="col-md-12">
+                              <label for="c_fname" class="text-black">Nombre propietario <span class="text-danger">*</span></label>
+                              <input type="text" class="form-control" id="c_fname" name="c_fname">
+                          </div>
+                      </div>
+                      <div class="mb-3 row">
+                          <div class="col-md-12">
+                              <label for="c_fname" class="text-black">Número de tarjeta<span class="text-danger">*</span></label>
+                              <div class="input">
+                                  <i class="fa fa-credit-card"></i>
+                                  <input type="text" class="form-control" placeholder="0000 0000 0000 0000">
+                              </div> 
+                          </div> 
+                      </div>
+                      <div class="row mt-3 mb-3">
+                        <div class="col-md-6">
+                          <label for="c_fname" class="text-black">Fecha expiración<span class="text-danger">*</span></label>                      
+                          <div class="input">
+                              <i class="fa fa-calendar"></i>
+                              <div class="input-group">
+                                  <input type="number" placeholder="MM" name="" class="form-control" required> 
+                                  <input type="number" placeholder="YY" name="" class="form-control" required> 
+                              </div>
+                          </div> 
+                        </div>
+                        <div class="col-md-6">
+                          <label for="c_fname" class="text-black">CVC/CVV<span class="text-danger">*</span></label> 
+                          <div class="input">
+                            <i class="fa fa-lock"></i>
+                            <input type="text" class="form-control" placeholder="000">                          
+                          </div>                         
+                        </div>                     
+                      </div>
+                      <span class="text-muted certificate-text"><i class="fa fa-lock"></i> Your transaction is secured with ssl certificate</span>
+                    </div>
+                </div>
+                <div class="card-header p-0">
+                    <div class="form-check">
+                        <label class="form-check-label p-3" for="flexRadioDefault2">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" (click)="collapseInternetBanking()">
+                            <span>Banca por internet</span>                            
+                        </label>
+                    </div> 
+                </div>
+                <div #collapseInternetBankingContent class="accordion-collapse collapse hide" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body payment-card-body">
+                      <div class="mb-3 row">
+                          <div class="col-md-12">
+                              <label for="c_fname" class="text-black">Nombre propietario <span class="text-danger">*</span></label>
+                              <input type="text" class="form-control" id="c_fname" name="c_fname">
+                          </div>
+                      </div>
+                      <div class="mb-3 row">
+                          <div class="col-md-12">
+                              <label for="c_fname" class="text-black">Número de tarjeta<span class="text-danger">*</span></label>
+                              <div class="input">
+                                  <i class="fa fa-credit-card"></i>
+                                  <input type="text" class="form-control" placeholder="0000 0000 0000 0000">
+                              </div> 
+                          </div> 
+                      </div>
+                      <div class="row mt-3 mb-3">
+                        <div class="col-md-6">
+                          <label for="c_fname" class="text-black">Fecha expiración<span class="text-danger">*</span></label>                      
+                          <div class="input">
+                              <i class="fa fa-calendar"></i>
+                              <div class="input-group">
+                                  <input type="number" placeholder="MM" name="" class="form-control" required> 
+                                  <input type="number" placeholder="YY" name="" class="form-control" required> 
+                              </div>
+                          </div> 
+                        </div>
+                        <div class="col-md-6">
+                          <label for="c_fname" class="text-black">CVC/CVV<span class="text-danger">*</span></label> 
+                          <div class="input">
+                            <i class="fa fa-lock"></i>
+                            <input type="text" class="form-control" placeholder="000">                          
+                          </div>                         
+                        </div>                     
+                      </div>
+                      <span class="text-muted certificate-text"><i class="fa fa-lock"></i> Your transaction is secured with ssl certificate</span>
+                    </div>
+                  </div>
+                <div class="card-header p-0">                   
+                    <div class="form-check">                        
+                        <label class="form-check-label p-3" for="flexRadioDefault3">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+                            <span>Default radio</span>
+                        </label>
+                    </div>                    
+                </div>
+               
+              
+              
+
+            </div>              
+        </div>
+        </div>
+        <div class="row mb-5">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <button class="btn btn-primary btn-lg py-3 btn-block" [routerLink]="['/thankyou']">Realizar pago</button>
+                </div>
+            </div>
+        </div>
+
+       
+    </div>
+    <div class="col-md-5">
+                
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <h2 class="h3 mb-3 text-black">Resumen del pedido</h2>
+                <div class="p-3 p-lg-5 border">
+                    <table class="table site-block-order-table mb-5">
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr  *ngFor="let product of productsLS">
+                                <td>{{product.productName}} <strong class="mx-2">x</strong> {{product.quantity}}</td>
+                                <td>{{product.subtotal}}</td>
+                            </tr>                            
+                            <tr>
+                                <td class="text-black font-weight-bold"><strong>Cart Subtotal</strong></td>
+                                <td class="text-black">{{subtotal}}</td>
+                            </tr>
+                            <tr>
+                                <td class="text-black font-weight-bold"><strong>Order Total</strong></td>
+                                <td class="text-black font-weight-bold"><strong>{{subtotal}}</strong></td>
+                            </tr>
+                            <tr>
+                                <td>(IGV incluido  {{igvtotal}} )</td>
+                                <td></td>
+                            </tr>
+                           
+                        </tbody>
+                    </table>
+                    <div class="border p-3 mb-3">                       
+                        <div class="" id="collapsebank">
+                            <div class="row mb-2 mt-2">                                
+                                <div class="col-md-12">
+                                    <div class="gl-vspace-bpall-medium">
+                                        <div class="gl-vspace-bpall-medium bottom-content___38506">
+                                            <h6 class="gl-label gl-label--l gl-label--bold">OPCIONES DE PAGO</h6>
+                                            <img style="max-width: 100%" src="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/esPE/Images/ONSITE_CART682x134px_tcm202-730129.jpg" alt="">
+                                        </div>
+                                    </div>
+                                </div>                              
+                            </div>
+                        </div>
+                    </div>                   
+                </div>
+            </div>
+        </div>
+     
+    </div>
+</div>

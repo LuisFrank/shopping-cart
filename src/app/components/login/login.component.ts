@@ -23,10 +23,13 @@ export class LoginComponent implements OnInit {
 
     this.model.action = 'login';  
     this.authService.loginForm(this.model).subscribe(response => {
+      console.info("success");
+      console.info(response);
       if (response.status === 'success') {
         this.authService.setUser(response);
       }
     }, error => {
+      console.info("error login");
       console.error(error);
     });
 

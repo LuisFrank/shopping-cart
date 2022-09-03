@@ -25,7 +25,8 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-
+#Example
+https://preview.colorlib.com/#shopmax
 
 #up server
 json-server --watch db.json
@@ -42,3 +43,6 @@ docker run -d -it -p 80:80 shopping-cart
 
 #generar componente o servicio dentro de docker-compose
 #docker-compose run front-shopping-cart ng g service services/cartlocalstorage 
+
+#JWT implementado
+https://www.freakyjolly.com/angular-json-web-token-authentication-tutorial-using-angular2-jwt/

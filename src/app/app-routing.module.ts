@@ -6,8 +6,10 @@ import { RegisterComponent } from './components/register/register.component';
 import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found.component';
 import { CartDetailComponent } from './components/shopping-cart/cart-detail/cart-detail.component';
 import { CheckoutComponent } from './components/shopping-cart/checkout/checkout.component';
+import { PaymentComponent } from './components/shopping-cart/payment/payment.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { SingleProductComponent } from './components/shopping-cart/single-product/single-product.component';
+import { ThankyouComponent } from './components/shopping-cart/thankyou/thankyou.component';
 import { AuthGuard } from './guards/auth.guard';
 
 
@@ -25,6 +27,8 @@ const routes: Routes = [
   { path: 'single-product/:id', component: SingleProductComponent },  
   { path: 'cart-detail', component: CartDetailComponent },  
   { path: 'checkout', component: CheckoutComponent },  
+  { path: 'payment', component: PaymentComponent },  
+  { path: 'thankyou', component: ThankyouComponent },  
   { path: '**', component: PageNotFoundComponent},
 
 

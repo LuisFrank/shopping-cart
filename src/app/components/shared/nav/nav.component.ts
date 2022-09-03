@@ -1,10 +1,11 @@
 import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { DOCUMENT } from '@angular/common'; 
-import { faHeart, faSearch, faShoppingBag } from '@fortawesome/free-solid-svg-icons';
+import { faHeart, faSearch, faShoppingBag, faUser } from '@fortawesome/free-solid-svg-icons';
 import { MessengerService } from 'src/app/services/messenger.service';
 import { CartItem } from 'src/app/models/cart-item';
 import { CartService } from 'src/app/services/cart.service';
 import { Collapse } from 'bootstrap';
+import { CartlocalstorageService } from 'src/app/services/cartlocalstorage.service';
 
 @Component({
   selector: 'app-nav',
@@ -18,36 +19,38 @@ export class NavComponent implements OnInit {
   faHeart = faHeart;
   faSearch = faSearch;
   faShoppingBag = faShoppingBag;
+  faUser = faUser;
   countCart = 0
 
   @ViewChild("navbarsExample10") collapse!: ElementRef;
   
 
   
-  constructor(private msg:MessengerService, private cartService:CartService) { }
+  constructor(private msg:MessengerService, 
+              private cartService:CartService,
+              private cartLocalStorageService: CartlocalstorageService) { }
 
   ngOnInit(): void {
     this.counterCart();
-    this.loadCartItems();
-    this.counterDownCart();
+    this.upDownCart();
+    this.loadCartLocalStorage();
   }
 
   displayMenu(event:any) {
    this.isMenuCollapsed = !this.isMenuCollapsed;
   }
 
-  counterCart(){
-    this.msg.getMessage().subscribe((product:any) => { 
-      console.log("subir count");
-      this.countCart++;
+  upDownCart(){
+    this.msg.getMessageDownCart().subscribe((cartItem:any) => { 
+      this.loadCartLocalStorage();
     });
   }
 
-  counterDownCart(){
-    this.msg.getMessageDownCart().subscribe(() =>{
-      this.countCart--;
+  counterCart(){
+    this.msg.getMessage().subscribe((product:any) => { 
+      this.loadCartLocalStorage();
     });
-  }
+  }  
 
   loadCartItems(){
     this.cartService.getCartItems().subscribe((items: CartItem[]) =>{
@@ -55,6 +58,10 @@ export class NavComponent implements OnInit {
     })
   }  
 
+  loadCartLocalStorage(){
+    this.countCart = 0;
+    (this.cartLocalStorageService.getCartData() as CartItem[]).forEach( a => this.countCart+= a.quantity);
+  }
 
   clickColapse(){ 
     var bsCollapse = Collapse.getOrCreateInstance(this.collapse.nativeElement);

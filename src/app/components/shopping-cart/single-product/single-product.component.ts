@@ -5,6 +5,8 @@ import { CartService } from 'src/app/services/cart.service';
 import { MessengerService } from 'src/app/services/messenger.service';
 import { ProductService } from 'src/app/services/product.service';
 import { Modal } from  'bootstrap';
+import { CartlocalstorageService } from 'src/app/services/cartlocalstorage.service';
+import { CartItem } from 'src/app/models/cart-item';
 
 @Component({
   selector: 'app-single-product',
@@ -22,7 +24,8 @@ export class SingleProductComponent implements OnInit {
   constructor(private activeRoute: ActivatedRoute,
     private msg: MessengerService, 
     private cartService: CartService,
-    private productService:ProductService) {
+    private productService:ProductService,
+    private cartLocalStorageService: CartlocalstorageService) {
     this.product_id = this.activeRoute.snapshot.params.id;
   
    }
@@ -46,11 +49,15 @@ export class SingleProductComponent implements OnInit {
   addToCart(){
     // var modalToggle = document.getElementById('toggleMyModal')
 
-    this.cartService.addProductToCart(this.product).subscribe(() =>{
-      console.log("add carttt");
-      this.msg.sendMessage(this.product);      
-    })
-
+    // this.cartService.addProductToCart(this.product).subscribe(() =>{
+    //   console.log("add carttt");
+    //   this.msg.sendMessage(this.product);      
+    // })
+    // console.log("local storage antesss",this.cartLocalStorageService.getCartData());
+  
+    this.cartLocalStorageService.addItem(this.product);
+    this.msg.sendMessage(this.product);    
+    console.log("local storage",this.cartLocalStorageService.getCartData());
     return false;
   }
 

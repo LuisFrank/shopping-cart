@@ -25,6 +25,8 @@ import { SingleProductComponent } from './components/shopping-cart/single-produc
 import { ModalComponent } from './components/shared/modal/modal.component';
 import { CartDetailComponent } from './components/shopping-cart/cart-detail/cart-detail.component';
 import { CheckoutComponent } from './components/shopping-cart/checkout/checkout.component';
+import { PaymentComponent } from './components/shopping-cart/payment/payment.component';
+import { ThankyouComponent } from './components/shopping-cart/thankyou/thankyou.component';
 
 
 
@@ -49,7 +51,9 @@ import { CheckoutComponent } from './components/shopping-cart/checkout/checkout.
     SingleProductComponent,
     ModalComponent,
     CartDetailComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    PaymentComponent,
+    ThankyouComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +68,7 @@ import { CheckoutComponent } from './components/shopping-cart/checkout/checkout.
           return localStorage.getItem('access_token')
         },
         allowedDomains: ['localhost'],
-        disallowedRoutes: ['localhost/auth/login']
+        disallowedRoutes: ['localhost/login']
       }
     }),
    
