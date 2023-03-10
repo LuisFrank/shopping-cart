@@ -17,7 +17,7 @@ constructor(private router: Router, private authService: AuthService){
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
    
       if (!this.authService.isLoggedIn()) {
-        this.router.navigate(['/login']);
+        this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
         return false;
       } else {
         return true;

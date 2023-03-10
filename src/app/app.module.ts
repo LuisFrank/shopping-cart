@@ -27,6 +27,10 @@ import { CartDetailComponent } from './components/shopping-cart/cart-detail/cart
 import { CheckoutComponent } from './components/shopping-cart/checkout/checkout.component';
 import { PaymentComponent } from './components/shopping-cart/payment/payment.component';
 import { ThankyouComponent } from './components/shopping-cart/thankyou/thankyou.component';
+import { AlertNotificationComponent } from './components/shared/alert-notification/alert-notification.component';
+// import { NgbDatepicker } from '@ng-bootstrap/ng-bootstrap';
+
+
 
 
 
@@ -53,7 +57,8 @@ import { ThankyouComponent } from './components/shopping-cart/thankyou/thankyou.
     CartDetailComponent,
     CheckoutComponent,
     PaymentComponent,
-    ThankyouComponent
+    ThankyouComponent,
+    AlertNotificationComponent
   ],
   imports: [
     BrowserModule,
@@ -65,12 +70,17 @@ import { ThankyouComponent } from './components/shopping-cart/thankyou/thankyou.
     JwtModule.forRoot({
       config:{
         tokenGetter:() => {
-          return localStorage.getItem('access_token')
+          return localStorage.getItem('token')
         },
         allowedDomains: ['localhost'],
         disallowedRoutes: ['localhost/login']
       }
     }),
+    // NgbDatepicker
+    // NgbModule,
+    // NgbModule,
+    
+    
    
   ],
   providers: [],

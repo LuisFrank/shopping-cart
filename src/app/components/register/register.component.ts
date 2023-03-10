@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 function passwordsMatchValidator(form:any){
@@ -39,7 +40,7 @@ function symbolValidator(control:any){ //control = regusterForm.get('password')
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
 
@@ -63,10 +64,13 @@ export class RegisterComponent implements OnInit {
   buildForm(){
     this.registerForm = this.builder.group({
       name: ['',Validators.required],
+      lastname: ['',Validators.required],
+      sex:  ['',Validators.required],
+      birthdateday: ['',Validators.required],
       email: ['',[Validators.required,Validators.email]],
       username: ['',Validators.required],
       password: ['',[Validators.required, symbolValidator, Validators.minLength(4)]],
-      confirmPassword: ['',[]]
+      confirmPassword: ['',[Validators.required]]
     }, {
       Validators: passwordsMatchValidator
     })

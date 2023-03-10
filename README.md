@@ -46,3 +46,5 @@ docker run -d -it -p 80:80 shopping-cart
 
 #JWT implementado
 https://www.freakyjolly.com/angular-json-web-token-authentication-tutorial-using-angular2-jwt/
+
+

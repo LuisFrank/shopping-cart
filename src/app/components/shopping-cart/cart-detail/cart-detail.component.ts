@@ -44,11 +44,13 @@ export class CartDetailComponent implements OnInit {
   calculateCartTotal(){
     this.subtotal = 0;
     this.total = 0;
-    this.productsLS.forEach((element:any) => {
-      element.subtotal = (element.quantity * element.price );
-      this.subtotal +=  element.subtotal;
-      this.total = this.subtotal;
-    });
+    if(this.productsLS?.length > 0){
+      this.productsLS.forEach((element:any) => {
+        element.subtotal = (element.quantity * element.price );
+        this.subtotal +=  element.subtotal;
+        this.total = this.subtotal;
+      });
+    }
   }
 
   removeItemFromCart(cartItem:any){

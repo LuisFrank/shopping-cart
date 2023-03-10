@@ -23,7 +23,8 @@
                     <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input" id="remember" name="remember" #remember="ngModel"  [(ngModel)]="model.remember">
                         <label class="form-check-label" for="remember">Remember</label>
-                    </div>            
+                    </div>  
+                    <app-alert-notification [notificationType]="this.notification_type"></app-alert-notification>      
                     <div class="d-grid gap-2">
                         <button class="btn btn-dark" [disabled]="loginForm.invalid">INICIAR SESIÓN</button>            
                     </div>  
@@ -46,6 +47,9 @@
                   <a href="#" class="btn btn-dark" [routerLink]="['/register']">
                         REGISTRATE
                   </a>
+                  <!-- <a href="#" class="btn btn-dark" [routerLink]="['/register']">
+                    LOG OUT
+                    </a> -->
                   <!-- <button class="btn btn-primary btn-lg py-3 btn-block" [routerLink]="['/register']">Place Order</button> -->
                 </div>
               </div>

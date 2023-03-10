@@ -6,6 +6,7 @@ import { CartItem } from 'src/app/models/cart-item';
 import { CartService } from 'src/app/services/cart.service';
 import { Collapse } from 'bootstrap';
 import { CartlocalstorageService } from 'src/app/services/cartlocalstorage.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-nav',
@@ -28,7 +29,8 @@ export class NavComponent implements OnInit {
   
   constructor(private msg:MessengerService, 
               private cartService:CartService,
-              private cartLocalStorageService: CartlocalstorageService) { }
+              private cartLocalStorageService: CartlocalstorageService,
+              private authService: AuthService) { }
 
   ngOnInit(): void {
     this.counterCart();
@@ -60,12 +62,21 @@ export class NavComponent implements OnInit {
 
   loadCartLocalStorage(){
     this.countCart = 0;
+    if(this.cartLocalStorageService.getCartData()!= null)
     (this.cartLocalStorageService.getCartData() as CartItem[]).forEach( a => this.countCart+= a.quantity);
   }
 
   clickColapse(){ 
     var bsCollapse = Collapse.getOrCreateInstance(this.collapse.nativeElement);
     bsCollapse.toggle();    
+  }
+
+  isLoggedIn() : boolean{
+    return this.authService.isLoggedIn();
+  }
+
+  logOut(): void{
+    this.authService.logout();
   }
 
 

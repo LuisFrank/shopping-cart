@@ -15,4 +15,5 @@ export const wishlistURL = baseUrl + '/wishlist'
 //Backend 
 export const baseApi = '/api'
 export const baseBackendUrl = environment.production ? 'https://api.shoppingcart.com': 'https://localhost:49153' + baseApi
-export const postLoginURL = baseBackendUrl + '/User/Login'
+// export const postLoginURL = baseBackendUrl + '/User/Login'
+export const postLoginURL = baseBackendUrl + '/Auth/Authentication'

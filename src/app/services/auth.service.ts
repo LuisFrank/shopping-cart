@@ -6,7 +6,11 @@ import { catchError, retry } from 'rxjs/operators';
 import { postLoginURL } from '../config/api';
 
 interface LoginResponse{
-  access_token: string;
+  email: string;
+  id: number;
+  token: string;
+  refreshToken: string;
+  userName: string;
   data:any;
   name:string;
   status:string;
@@ -54,14 +58,19 @@ export class AuthService {
 
   // After login save token and other values(if any) in localStorage
   setUser(resp: LoginResponse) {
-    localStorage.setItem('name', resp.name);
-    localStorage.setItem('access_token', resp.access_token);
-    this.router.navigate(['/dashboard']);
+    localStorage.setItem('email', resp.email); 
+    localStorage.setItem('userName', resp.userName);
+    localStorage.setItem('token', resp.token);
+    // this.router.navigate(['/dashboard']);
+  }
+
+  navigateByUrl(returnURL: string){
+    this.router.navigateByUrl(returnURL);
   }
 
   // Checking if token is set
   isLoggedIn() {
-    return localStorage.getItem('access_token') != null;
+    return localStorage.getItem('token') != null;
   }
 
   // After clearing localStorage redirect to login screen
