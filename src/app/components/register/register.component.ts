@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
 
 function passwordsMatchValidator(form:any){
   console.log("form",form)
@@ -40,6 +39,7 @@ function symbolValidator(control:any){ //control = regusterForm.get('password')
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
+  imports: [NgbAlert],
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {

@@ -28,6 +28,7 @@ import { CheckoutComponent } from './components/shopping-cart/checkout/checkout.
 import { PaymentComponent } from './components/shopping-cart/payment/payment.component';
 import { ThankyouComponent } from './components/shopping-cart/thankyou/thankyou.component';
 import { AlertNotificationComponent } from './components/shared/alert-notification/alert-notification.component';
+
 // import { NgbDatepicker } from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -60,7 +61,7 @@ import { AlertNotificationComponent } from './components/shared/alert-notificati
     ThankyouComponent,
     AlertNotificationComponent
   ],
-  imports: [
+  imports: [    
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -76,7 +77,7 @@ import { AlertNotificationComponent } from './components/shared/alert-notificati
         disallowedRoutes: ['localhost/login']
       }
     }),
-    // NgbDatepicker
+    
     // NgbModule,
     // NgbModule,
     
