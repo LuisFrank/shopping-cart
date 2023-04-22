@@ -6,7 +6,7 @@ WORKDIR /app
 COPY package*.json /app
 RUN npm install
 #instalar angular solo modo desarrollo
-RUN npm install -g @angular/cli@14.0.0
+RUN npm install -g @angular/cli@14.1.0
 
 COPY . /app
 

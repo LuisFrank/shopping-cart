@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { JwtModule } from '@auth0/angular-jwt';
 
 import { AppRoutingModule } from './app-routing.module';
+
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
@@ -14,11 +16,9 @@ import { CartComponent } from './components/shopping-cart/cart/cart.component';
 import { ProductListComponent } from './components/shopping-cart/product-list/product-list.component';
 import { CartItemComponent } from './components/shopping-cart/cart/cart-item/cart-item.component';
 import { ProductItemComponent } from './components/shopping-cart/product-list/product-item/product-item.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BreadcrumbComponent } from './components/shared/breadcrumb/breadcrumb.component';
 import { HomeComponent } from './components/home/home.component';
 import { SingleProductComponent } from './components/shopping-cart/single-product/single-product.component';
@@ -28,8 +28,12 @@ import { CheckoutComponent } from './components/shopping-cart/checkout/checkout.
 import { PaymentComponent } from './components/shopping-cart/payment/payment.component';
 import { ThankyouComponent } from './components/shopping-cart/thankyou/thankyou.component';
 import { AlertNotificationComponent } from './components/shared/alert-notification/alert-notification.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+//import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-// import { NgbDatepicker } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -61,13 +65,10 @@ import { AlertNotificationComponent } from './components/shared/alert-notificati
     ThankyouComponent,
     AlertNotificationComponent
   ],
-  imports: [    
+  imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FontAwesomeModule,
-    FormsModule,
-    ReactiveFormsModule,
     JwtModule.forRoot({
       config:{
         tokenGetter:() => {
@@ -77,7 +78,12 @@ import { AlertNotificationComponent } from './components/shared/alert-notificati
         disallowedRoutes: ['localhost/login']
       }
     }),
-    
+    //NgbModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgbModule,
+    FontAwesomeModule,
+    // NgbModule,
     // NgbModule,
     // NgbModule,
     
