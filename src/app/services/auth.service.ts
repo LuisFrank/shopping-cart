@@ -47,9 +47,11 @@ export class AuthService {
 
 
   // Verify user credentials on server to get token
-  loginForm(data:any): Observable<LoginResponse> {
+  loginForm(data:any, httpOptions?: {headers: HttpHeaders}): Observable<LoginResponse> {
+    const finalOptions = httpOptions ?? this.httpOptions;
+
     return this.http
-      .post<LoginResponse>(postLoginURL, data, this.httpOptions)
+      .post<LoginResponse>(postLoginURL, data, finalOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)

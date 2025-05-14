@@ -1,6 +1,8 @@
 version: '3.8'
 services:
   front-shopping-cart:
+    depends_on: 
+    - back-shopping-cart
     build: .   
     volumes:
       - .:/app:rw
@@ -9,8 +11,6 @@ services:
       - '4200:4200'
     command: sh -c "npm start"
   back-shopping-cart:
-    depends_on: 
-      - postgres-db
     build: 
       context: .
       dockerfile: Dockerfile.dbserver
@@ -19,23 +19,23 @@ services:
     volumes:
       - ./db.json:/app/db.json:rw
     command: json-server --watch db.json --host 0.0.0.0
-  postgres-db:
-    image: 'mdillon/postgis'
-    restart: always
-    volumes:
-      - './postgres_data:/var/lib/postgresql/data'
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=db_shopping_cart
-    ports:
-      - '5432:5432'
-  pgadmin:
-    image: 'dpage/pgadmin4'
-    environment:
-    - PGADMIN_DEFAULT_EMAIL=user@domain.com
-    - PGADMIN_DEFAULT_PASSWORD=SuperSecret 
-    - POSTGRES_DB=db_shopping_cart
-    ports:
-      - '80:80'
+  # postgres-db:
+  #   image: 'mdillon/postgis'
+  #   restart: always
+  #   volumes:
+  #     - './postgres_data:/var/lib/postgresql/data'
+  #   environment:
+  #     - POSTGRES_USER=postgres
+  #     - POSTGRES_PASSWORD=postgres
+  #     - POSTGRES_DB=db_shopping_cart
+  #   ports:
+  #     - '5432:5432'
+  # pgadmin:
+  #   image: 'dpage/pgadmin4'
+  #   environment:
+  #   - PGADMIN_DEFAULT_EMAIL=user@domain.com
+  #   - PGADMIN_DEFAULT_PASSWORD=SuperSecret 
+  #   - POSTGRES_DB=db_shopping_cart
+  #   ports:
+  #     - '80:80'
 

@@ -1,3 +1,4 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router , ActivatedRoute } from '@angular/router';
 import { NotificationType } from 'src/app/models/notification-type';
@@ -33,9 +34,20 @@ export class LoginComponent implements OnInit {
 
   login(control:any){
     console.log("control1 one tiem",control);
+    const formData = new FormData();
+    formData.append('Email', this.model.email);
+    formData.append('Password', this.model);
 
-    this.model.action = 'login';  
-    this.authService.loginForm(this.model).subscribe(response => {
+    const formOptions = {
+    headers: new HttpHeaders({
+      // No pongas Content-Type: multipart/form-data manualmente,
+      // el navegador lo agrega automáticamente al usar FormData
+    })
+  };
+
+    
+    //  this.model.action = 'Post';  
+    this.authService.loginForm(formData,formOptions).subscribe(response => {
       console.info("success");
       console.info(response);
       // if (response.status === 'success') {

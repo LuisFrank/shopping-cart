@@ -10,14 +10,14 @@
                         <label for="username" class="form-label">Correo<span
                             class="text-danger">*</span></label>
                         <input type="username" class="form-control" [ngClass]="{'is-invalid': loginForm.touched && username.invalid}" 
-                        id="username" name="username" #username="ngModel" [(ngModel)]="model.email" required />
+                        id="username" name="username" #username="ngModel" [(ngModel)]="model.Email" required />
                         <span class="invalid-feedback">Correo no puede estar en blanco</span>                      
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Contraseña<span
                             class="text-danger">*</span></label>
                         <input type="password" class="form-control" [ngClass]="{'is-invalid': loginForm.touched && password.invalid}" 
-                        id="password"  name="password"  #password="ngModel" [(ngModel)]="model.password" required/>
+                        id="password"  name="password"  #password="ngModel" [(ngModel)]="model.Password" required/>
                         <span class="invalid-feedback">Contraseña no puede estar en blanco</span>
                     </div>     
                     <div class="mb-3 form-check">

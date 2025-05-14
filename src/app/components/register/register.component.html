@@ -17,7 +17,8 @@
                                 id="name" 
                                 [ngClass]="{'is-invalid': registerForm.get('name').touched && registerForm.get('name').invalid}"
                                 formControlName="name" />
-                                <span class="invalid-feedback">Nombre no puede estar en blanco</span>                      
+                                <span class="invalid-feedback">Nombre no puede estar en blanco</span>   
+                                {{registerForm.get('name').errors | json}}                   
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -30,25 +31,31 @@
                                 id="lastname" 
                                 [ngClass]="{'is-invalid': registerForm.get('lastname').touched && registerForm.get('lastname').invalid}"
                                 formControlName="lastname" />
-                                <span class="invalid-feedback">Apellidos no puede estar en blanco</span>                      
+                                <span class="invalid-feedback">Apellidos no puede estar en blanco</span>      
+                                {{registerForm.get('lastname').errors | json}}                     
                             </div>
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <div class="col-md-6">
-                            <label for="ngbDatepicker" class="text-black">Fecha de nacimiento<span class="text-danger">*</span></label>                      
+                            <label for="birthday" class="text-black">Fecha de nacimiento<span class="text-danger">*</span></label>                      
                             <div class="input-group">
-                                <input
-                                    class="form-control"
-                                    placeholder="dd-mm-yyyy"
-                                    name="dp"
-                                    formControlName = "birthdateday"                                
+                                  <input
+                                    class = "form-control"
+                                    placeholder = "dd/mm/yyyy"
+                                    name = "birthday"
+                                    formControlName = "birthday"                                
                                     ngbDatepicker
-                                    #d="ngbDatepicker"
-                                />
-                                <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button"><fa-icon [icon]="faCalendar"></fa-icon></button>
-                            </div>
-                        </div>
+                                    #d= "ngbDatepicker"
+                                    [minDate]="minDate"
+                                    [ngClass]="{'is-invalid': registerForm.get('birthday').touched && registerForm.get('birthday').invalid}"
+                                /> 
+                              
+                                <button class="btn btn-outline-secondary rounded-end" (click)="d.toggle()" type="button"><fa-icon [icon]="faCalendar"></fa-icon></button> 
+                                <span class="invalid-feedback">Apellidos no puede estar en blanco</span>
+                             
+                            </div>                           
+                        </div>  
                         <div class="col-md-6">
                             <label for="sexRadioOptions" class="text-black">Sexo<span class="text-danger">*</span></label>                      
                             <div class="input">
@@ -62,6 +69,7 @@
                                         <input class="form-check-input"   [ngClass]="{'is-invalid': registerForm.get('sex').touched && registerForm.get('sex').invalid}" formControlName="sex" type="radio" name="sex" id="inlineRadio2" value="F">
                                         <label class="form-check-label" for="inlineRadio2">Mujer</label>
                                       </div> 
+                                      {{registerForm.get('sex').errors | json}}
                                       <!-- <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" disabled>
                                         <label class="form-check-label" for="inlineRadio3"> Otro</label>
@@ -83,18 +91,9 @@
                             <span *ngIf="registerForm.get('email').hasError('required')"> Correo no puede estar en blanco</span>   
                             <span *ngIf="registerForm.get('email').hasError('email')"> Correo debe ser uno válido</span>   
                         </span>
+                        {{registerForm.get('email').errors | json}}
                         
-                    </div>  
-                    <!-- <div class="mb-3">
-                        <label for="username" class="form-label">Usuario<span
-                            class="text-danger">*</span></label>
-                        <input 
-                        class="form-control"  
-                        id="username"  
-                        [ngClass]="{'is-invalid': registerForm.get('username').touched && registerForm.get('username').invalid}"
-                        formControlName="username"/>
-                        <span class="invalid-feedback">Username can't be blank</span>                      
-                    </div>   -->
+                    </div>                     
                     <div class="mb-3">
                         <label for="password" class="form-label">Contraseña<span
                             class="text-danger">*</span></label>
@@ -104,7 +103,7 @@
                          id="password" 
                          [ngClass]="{'is-invalid': registerForm.get('password').touched && registerForm.get('password').invalid}"
                          formControlName="password"/>
-                         <!-- {{ registerForm.get('password').errors | json}} -->
+                         {{ registerForm.get('password').errors | json}}
                         <span class="invalid-feedback">                            
                             <span *ngIf="registerForm.get('password').hasError('required')">Contraseña no puede estar en blanco</span>
                             <span *ngIf="registerForm.get('password').hasError('symbol')">Password must contain @</span>
@@ -120,14 +119,20 @@
                         id="confirmPassword" 
                         [ngClass]="{'is-invalid': registerForm.get('confirmPassword').touched && registerForm.get('confirmPassword').invalid}"
                         formControlName="confirmPassword"/>
-                        <span class="invalid-feedback">Confirmar contraseña debe ser igual</span>                      
-                    </div>    
-                    <!-- <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="remember" name="remember">
-                        <label class="form-check-label" for="remember">Remember</label>
-                    </div>             -->
+                        <span class="invalid-feedback">
+                            <!-- <span *ngIf="registerForm.get('confirmPassword').hasError('required')">confirmPassword no puede estar en blanco</span> -->
+                            <span *ngIf="registerForm.get('confirmPassword').hasError('matchPassword')"> Confirmar contraseña debe ser igual.22</span>
+                        </span>  
+                    </div>  
+                   
                     <div class="d-grid gap-2">
-                        <button class="btn btn-dark" [disabled]="registerForm.invalid">Registrar</button>            
+                        <button class="btn btn-dark" [disabled]="registerForm.invalid">Registrar</button> 
+                        {{registerForm.errors}}
+                        {{registerForm.value | json}}
+                        {{registerForm.status | json}}
+                        {{registerForm.invalid | json}}
+                        {{registerForm.valid | json}}
+                   
                     </div>  
 
                 </form>

@@ -1,7 +1,7 @@
 import { environment } from "src/environments/environment";
 
 //Front end
-export const baseUrl = environment.production ? 'https://api.shoppingcart.com': 'http://localhost:3000'
+export const baseUrl = environment.production ? 'https://api.shoppingcart.com': 'https://68203e5572e59f922ef81312.mockapi.io/tienda/v1'
 
 export const productsURl = baseUrl + '/products'
 export const singleProductURl = baseUrl + '/products/:id'
@@ -14,6 +14,6 @@ export const wishlistURL = baseUrl + '/wishlist'
 
 //Backend 
 export const baseApi = '/api'
-export const baseBackendUrl = environment.production ? 'https://api.shoppingcart.com': 'https://localhost:49153' + baseApi
+export const baseBackendUrl = environment.production ? 'https://api.shoppingcart.com': 'https://pupicatwebapidesa-frcwdyakgba4dzaq.eastus2-01.azurewebsites.net' + baseApi
 // export const postLoginURL = baseBackendUrl + '/User/Login'
-export const postLoginURL = baseBackendUrl + '/Auth/Authentication'
+export const postLoginURL = baseBackendUrl + '/Authentication/login'

@@ -4,6 +4,7 @@ FROM node:14.17.4-alpine3.14 as build-step
 RUN mkdir -p /app
 WORKDIR /app
 COPY package*.json /app
+
 RUN npm install
 #instalar angular solo modo desarrollo
 RUN npm install -g @angular/cli@14.1.0

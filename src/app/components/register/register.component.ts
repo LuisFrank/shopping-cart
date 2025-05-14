@@ -1,5 +1,5 @@
 import { Component, Injectable, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, AbstractControlOptions, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { faCalendarDay } from '@fortawesome/free-solid-svg-icons';
 import { NgbDateAdapter, NgbDateParserFormatter, NgbDateStruct, NgbDatepickerI18n } from '@ng-bootstrap/ng-bootstrap';
 
@@ -94,21 +94,45 @@ export class CustomDateParserFormatter extends NgbDateParserFormatter {
 
 
 
+// function passwordsMatchValidator2(control:AbstractControl) :  { [key: string]: boolean } | null{
+//   console.log("ssss form",control.value)
 
-function passwordsMatchValidator(form:any){
-  console.log("form",form)
+//   let password = control.get('password')
+//   let confirmPassword = control.get('confirmPassword')
+//   if(control.hasError('required')){
+//     return null;
+//   }
+//   if(control.value.indexOf('@') > -1){
+//     return null
+//   }else{
+//     return {passwordsMatch: true}
+//   }
 
-  const password = form.get('password')
-  const confirmPassword = form.get('confirmPassword')
+//   // if(password!.value !== confirmPassword!.value){
+//   //   confirmPassword?.setErrors({ 'passwordsMatch' : true});
+//   //   // return { passwordsMatch: true };
+//   // }else{
+//   //   return null;
+//   // }
 
-  if(password.value !== confirmPassword.value){
-    confirmPassword.setErrors({ passwordsMatch:true})
-  }else{
-    confirmPassword.setErrors(null)
-  }
+//   // return null
+// }
+// function passwordsMatchValidator(control:any){
+//   console.log("form",control)
 
-  return null
-}
+//   let password = control.get('password')
+//   let confirmPassword = control.get('confirmPassword')
+
+
+//   if(password!.value !== confirmPassword!.value){
+//     confirmPassword?.setErrors({ 'passwordsMatch' : true});
+//     // return { passwordsMatch: true };
+//   }else{
+//     return null;
+//   }
+
+//   return null
+// }
 
 
 function symbolValidator(control:any){ //control = regusterForm.get('password')
@@ -121,11 +145,11 @@ function symbolValidator(control:any){ //control = regusterForm.get('password')
     return null;
   }
 
-  if(control.value.indexOf('@') > -1){
-    return null
-  }else{
-    return {symbol: true}
-  }
+  // if(control.value.indexOf('@') > -1){
+  //   return null
+  // }else{
+  //   return {symbol: true}
+  // }
   return null;
 }
 
@@ -141,15 +165,23 @@ function symbolValidator(control:any){ //control = regusterForm.get('password')
 export class RegisterComponent implements OnInit {
 
   registerForm:any;
+  subscribedValidity = "Unknwon";
   model: any;
   faCalendar = faCalendarDay;
+  minDate = { day: 1 ,month: 1, year: 1930}
 
-  constructor(private builder: FormBuilder) { }
+  constructor(private builder: FormBuilder) {
+
+   }
 
   ngOnInit(): void {
-    this.buildForm();
+
+    this.buildForm(this.builder);
     console.log("lengua")
-    
+    // Suscribirse al evento valueChanges para actualizar automáticamente el estado de validación del formulario
+    // this.registerForm.valueChanges.subscribe(() => {
+    //   this.actualizarEstadoValidacion();
+    // });
     // this.registerForm = this.builder.group({
     //   name: new FormControl('Jon Doe'),
     //   email: new FormControl('lflorentinomedrano@gmail.com'),
@@ -159,23 +191,177 @@ export class RegisterComponent implements OnInit {
     // })
   }
 
-  buildForm(){
-    this.registerForm = this.builder.group({
+  // passwordsMatchValidator(form: AbstractControl){
+  //   console.log("form",form)
+  
+  //   let password = form.get('password')
+  //   let confirmPassword = form.get('confirmPassword')
+  
+  
+  //   if(password!.value !== confirmPassword!.value){
+  //     this.registerForm.confirmPassword.setErrors({ 'passwordsMatch' : true});
+  //     // return { passwordsMatch: true };
+  //   }else{
+  //     return null;
+  //   }
+  
+  //   return null
+  // }
+
+
+  buildForm(builder:any){
+    this.registerForm = builder.group({
       name: ['',Validators.required],
       lastname: ['',Validators.required],
       sex:  ['M',Validators.required],
-      birthdateday: ['',Validators.required],
+      birthday: [null,Validators.required],
       email: ['',[Validators.required,Validators.email]],
-      username: ['',Validators.required],
+      // username: ['',Validators.required],
       password: ['',[Validators.required, symbolValidator, Validators.minLength(4)]],
-      confirmPassword: ['',[Validators.required]]
-    }, {
-      Validators: passwordsMatchValidator
-    })
+      confirmPassword: ['', [Validators.required,this.passwordsMatchValidator.bind(this)]]
+      // confirmPassword: ['', [this.passwordsMatchValidator.bind(this)]]
+    } )
   }
 
+  passwordsMatchValidator(control: AbstractControl): {[key: string]: any} | null {
+
+  const passwordControl = control.root.get('password');
+  const confirmPasswordControl = control.root.get('confirmPassword');
+
+  if (passwordControl && confirmPasswordControl) {
+    const passwordValue = passwordControl.value;
+    const confirmPasswordValue = confirmPasswordControl.value;
+
+    if (passwordValue !== confirmPasswordValue) {
+      return { 'matchPassword': true };
+    }
+  }
+ 
+    // if(this.registerForm !== undefined){
+    
+    //   var confirmPassword = control.value
+    //   var password =  this.registerForm.get('password').value
+      // console.log("passwordsMatchValidator insideeeeee confirmPassword",confirmPassword)  
+      // console.log("passwordsMatchValidator insideeeeee password",password)
+
+      // console.log("passwordsMatchValidator insideeeeee errors",control.errors)
+      // if(control.hasError('required')){
+      //   return null;
+      // }
+
+      // if(control.hasError('minlength')){
+      //   if(password !== confirmPassword){
+      //     return { passwordsMatch: true };
+      //   }else{
+      //     return null;
+      //   } 
+      // }else{
+      //   if(password !== confirmPassword){
+      //     return { passwordsMatch: true };
+      //   }else{
+      //     return null;
+      //   } 
+      // }
+
+      // if(password !== confirmPassword){
+      //   return { passwordsMatch: true };
+      // }else{
+      //   return null;
+      // } 
+
+      // if(password !== confirmPassword){
+      //   control.setErrors({ passwordsMatch: true })
+      //   return { passwordsMatch: true };
+      // }else{
+      //   return null;
+      // }
+    
+     
+
+      // if(control.value.indexOf('@') > -1){
+      //   return null
+      // }else{
+      //   return {passwordsMatch: true}
+      // }
+
+
+    // }
+  
+    return null
+  }
+
+  passwordsMatchValidator2(control:AbstractControl) : ValidatorFn | null{
+  console.log("passwordsMatchValidator2 password",control.value.password)
+
+  let password = control.get('password')
+  let confirmPassword = control.get('confirmPassword')
+  return null;
+  // if(control.hasError('required')){
+  //   return null;
+  // }
+  // if(control.value.indexOf('@') > -1){
+  //   return null
+  // }else{
+  //   return {passwordsMatch: true}
+  // }
+}
+
+
+//  passwordsMatchValidator(control:any){
+//   console.log("passwordsMatchValidator form",control.value)
+
+//   // let password = control.get('password')
+//    let confirmPassword =  this.registerForm.get('confirmPassword')
+//   if(control.hasError('required')){
+//     return null;
+//   }
+
+//   // if(control.value.indexOf('@') > -1){
+//   //   return null
+//   // }else{
+//   //   return {passwordsMatch: true}
+//   // }
+
+//   if(confirmPassword!.value !== control!.value){
+//     confirmPassword?.setErrors({ 'passwordsMatch' : true});
+//     // return { passwordsMatch: true };
+//   }else{
+//     return null;
+//   }
+
+//   return null
+// }
+
+  actualizarEstadoValidacion() {
+    // this.registerForm.controls['name'].updateValueAndValidity();
+    // this.registerForm.controls['lastname'].updateValueAndValidity();
+    // this.registerForm.controls['sex'].updateValueAndValidity();
+    // this.registerForm.controls['birthday'].updateValueAndValidity();
+    // this.registerForm.controls['email'].updateValueAndValidity();
+    // this.registerForm.controls['username'].updateValueAndValidity();
+    // this.registerForm.controls['password'].updateValueAndValidity();
+    // this.registerForm.controls['confirmPassword'].updateValueAndValidity();
+ 
+
+    let controlActualizado = false;
+    Object.keys(this.registerForm.controls).forEach((key) => {
+    const control = this.registerForm.controls[key];
+    if (!controlActualizado) {
+      control.updateValueAndValidity();
+      controlActualizado = true;
+    }
+  });
+  }
+
+ 
   register(){
+
     console.log(this.registerForm.value);
+    if (this.registerForm.valid) {
+      // implementa aquí la lógica de registro
+    } else {
+      this.registerForm.markAllAsTouched();
+    }
 
   }
 
