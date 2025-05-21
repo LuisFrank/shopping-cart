@@ -38,4 +38,30 @@ export class ProductListComponent implements OnInit {
     })
   }
 
+  sortProducts(criterion: string): void {
+  switch (criterion) {
+    case 'relevance':
+      // podrías resetear a un orden por defecto si aplica
+      this.productList = [...this.productList];
+      this.dropdownReference = false;
+      break;
+    case 'nameAsc':
+      this.productList.sort((a, b) => a.name.localeCompare(b.name));
+         this.dropdownReference = false;
+      break;
+    case 'nameDesc':
+      this.productList.sort((a, b) => b.name.localeCompare(a.name));
+         this.dropdownReference = false;
+      break;
+    case 'priceAsc':
+      this.productList.sort((a, b) => a.price - b.price);
+         this.dropdownReference = false;
+      break;
+    case 'priceDesc':
+      this.productList.sort((a, b) => b.price - a.price);
+         this.dropdownReference = false;
+      break;
+  }
+}
+
 }

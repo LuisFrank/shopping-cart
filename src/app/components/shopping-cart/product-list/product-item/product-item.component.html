@@ -7,7 +7,7 @@
     <a href="#" class="nav-link active" aria-current="page" [routerLink]="['/home']"></a>
     <div class="card-body text-center p-4">
       <!-- <p class="card-text">{{ productItem.description}}</p>     -->
-      <a [routerLink]="['/single-product/',productItem.id]"><h5 class="text-muted">{{productItem.name}}</h5></a>        
+      <a [routerLink]="['/single-product/',productItem.id]"><h6 class="text-muted">{{productItem.name}}</h6></a>        
       <!-- <p>Finding perfect products</p>            -->
       <strong class="text-muted">{{ productItem.price  |currency: "S/"}}</strong>
       

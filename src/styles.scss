@@ -1,4 +1,57 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+	--pupicat-color-amarillo: #FFB600;
+	--pupicat-color-azul: #04333D;
+	--pupicat-color-rosado: #EBB1CA;
+	--pupicat-color-rosado-transparente: rgba(235, 177, 202, 0.85);
+	--pupicat-color-verde: #6DE2D9;
+	--pupicat-color-verde-hover: #42dace;
+}
+
+
+@font-face {
+	font-family: 'Dunkin Sans';
+	src: url('assets/fonts/Dunkin_Sans.otf') format('opentype'); /* Asegúrate de usar la extensión correcta */
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Dunkin Sans';
+	src: url('assets/fonts/Dunkin_Sans_Bold.otf') format('opentype'); /* Asegúrate de usar la extensión correcta */
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Dunkin Sans';
+	src: url('assets/fonts/Dunkin_Sans_Italic.otf') format('opentype'); /* Asegúrate de usar la extensión correcta */
+	font-weight: normal;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Dunkin Sans';
+	src: url('assets/fonts/Dunkin_Sans_Bold_Italic.otf') format('opentype'); /* Asegúrate de usar la extensión correcta */
+	font-weight: bold;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Gotham Light';
+	src: url('assets/fonts/Gotham-Light.otf') format('opentype');
+	font-weight: 100; /* Thin */
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Gotham Light';
+	src: url('assets/fonts/Gotham-LightItalic.otf') format('opentype');
+	font-weight: 100; /* Thin */
+	font-style: italic;
+}
+
+
 .cart-item{
     font-size: small;
 }
@@ -18,11 +71,26 @@ a:hover{
 }
 
 // html, body { height: 100%; }
-// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+ body {  
+    font-family: 'Gotham Light', sans-serif;
+    -webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+    color: var(--pupicat-color-azul);
+ }
 
-/* Importing Bootstrap SCSS file. */
-// @import '~bootstrap/scss/bootstrap';
 
+// /* Importing Bootstrap SCSS file. */
+// // @import '~bootstrap/scss/bootstrap';
+.custom-title {
+    font-weight: 700!important;
+    letter-spacing: 2px!important;
+    font-family: "Dunkin Sans", sans-serif !important;
+    padding: 5px 0 !important;
+    font-size: 14px !important;
+    transition: all, 0.3s !important;
+    padding: 5px 0 !important;
+    display: block !important;
+}
 
 
 /* Importing Bootstrap SCSS file. */

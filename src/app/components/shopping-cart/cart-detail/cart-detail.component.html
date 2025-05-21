@@ -36,7 +36,7 @@
                                 </div>
                               
                             </td>
-                            <td class="">{{product.subtotal | number:  '1.2-2' | currency : 'PEN' : 'S/'}}</td>
+                            <td class=""> {{ subtotal | currency:'PEN':'S/':'1.2-2' }}</td>
                             <td>
                                 <a [routerLink]="[]" class="btn btn-primary height-auto btn-sm" (click)="removeItemFromLocalStorate(product)">X</a>
                             </td>
@@ -99,7 +99,7 @@
                             <span class="text-black">Subtotal</span>
                         </div>
                         <div class="col-md-6 text-right">
-                            <strong class="text-black">{{this.subtotal | number:  '1.2-2'| currency : 'PEN' : 'S/'  }}</strong>
+                            <strong class="text-black">{{this.subtotal  | currency : 'PEN' : 'S/' :'1.2-2' }}</strong>
                         </div>
                     </div>
                     <div class="row mb-5">
@@ -107,7 +107,7 @@
                             <span class="text-black">Total</span>
                         </div>
                         <div class="col-md-6 text-right">
-                            <strong class="text-black">{{this.total | number:  '1.2-2'| currency : 'PEN' : 'S/' }}</strong>
+                            <strong class="text-black">{{this.total  | currency : 'PEN' : 'S/': '1.2-2' }}</strong>
                         </div>
                     </div>
                     <div class="row">
