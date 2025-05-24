@@ -5,12 +5,12 @@
                 <table id="table-cart" class="table table-bordered">
                     <thead>
                         <tr class="">
-                            <th class="col set-with-image">Product</th>
-                            <th class="col">Name</th>
-                            <th class="col">Price</th>
-                            <th class="col">Quantity</th>
+                            <th class="col set-with-image">Producto</th>
+                            <th class="col">Nombre</th>
+                            <th class="col">Precio</th>
+                            <th class="col">Cantidad</th>
                             <th class="col">Total</th>
-                            <th class="col">Remove</th>                              
+                            <th class="col">Eliminar</th>                              
                         </tr>
                     </thead>
                     <tbody>                                                        
@@ -26,11 +26,11 @@
                                    
                                     <div class="input-group" style="max-width: 120px;">
                                         <div class="input-group-prepend">
-                                        <button class="btn btn-outline-primary btn-down js-btn-minus" (click)="downQuantity(product)" type="button">−</button>
+                                        <button class="btn btn-outline-primary btn-down js-btn-minus bg-pupicat-button-outline" (click)="downQuantity(product)" type="button">−</button>
                                         </div>
                                         <input type="text" class="form-control input-quantity text-center" value="{{product.quantity}}" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
                                         <div class="input-group-append">
-                                        <button class="btn btn-outline-primary btn-up js-btn-plus" (click)="upQuantity(product)" type="button">+</button>
+                                        <button class="btn btn-outline-primary btn-up js-btn-plus bg-pupicat-button-outline" (click)="upQuantity(product)" type="button">+</button>
                                         </div>
                                     </div>
                                 </div>
@@ -38,7 +38,7 @@
                             </td>
                             <td class=""> {{ subtotal | currency:'PEN':'S/':'1.2-2' }}</td>
                             <td>
-                                <a [routerLink]="[]" class="btn btn-primary height-auto btn-sm" (click)="removeItemFromLocalStorate(product)">X</a>
+                                <a [routerLink]="[]" class="btn btn-primary height-auto btn-sm bg-pupicat-button" (click)="removeItemFromLocalStorate(product)">X</a>
                             </td>
                         </tr>
                     </tbody>
@@ -69,7 +69,7 @@
                 </div> -->
                 <div class="col-md-6">
                     <!-- [routerLink]="['/shop'] -->
-                    <a href="#" class="btn btn-outline-primary btn-lg btn-block" [routerLink]="['/shop']">Continue Shopping</a>
+                    <a href="#" class="btn btn-outline-primary bg-pupicat-button-outline btn-lg btn-block " [routerLink]="['/shop']">Continuar compras</a>
                     <!-- <button class="btn btn-outline-primary btn-lg btn-block">Continue Shopping</button> -->
                 </div>
             </div>
@@ -90,7 +90,7 @@
             <div class="row justify-content-end">
                 <div class="col-md-7">
                     <div class="row">
-                        <div class="col-md-12 text-right border-bottom mb-5">
+                        <div class="col-md-12 text-right border-bottom  mb-5">
                             <h3 class="text-black h4 text-uppercase">Cart Totals</h3>
                         </div>
                     </div>
@@ -112,7 +112,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <button class="btn btn-primary btn-lg py-3 btn-block" [routerLink]="['/checkout']">Proceed To
+                            <button class="btn btn-primary bg-pupicat-button btn-lg py-3 btn-block" [routerLink]="['/checkout']">Proceder a
                                 Checkout</button>
                         </div>
                     </div>

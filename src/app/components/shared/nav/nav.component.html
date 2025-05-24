@@ -5,7 +5,7 @@
       <a href="/" class="navbar-brand d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none"> 
       <!-- <a href="/" class="navbar-brand">     -->
         <!-- <app-header></app-header> -->
-        <img src="/assets/img/pupicat_logo_white_2_nobg.png" alt="Logo" class="img-fluid" style="width: 100px; height: auto;">
+        <img src="assets/img/pupicat_logo_white_2_nobg.png" alt="Logo" class="img-fluid" style="width: 100px; height: auto;">
       </a> 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon" (click)="clickColapse()"></span>
@@ -33,9 +33,9 @@
           <fa-icon [icon]="faShoppingBag">
            
           </fa-icon>
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" *ngIf="countCart> 0">
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-pupicat-amarillo" *ngIf="countCart> 0">
             {{countCart}}
-            <span class="visually-hidden">unread messages</span>
+            <span class="visually-hidden">Productos</span>
           </span>
         </a>
         <!-- <a href="" class="btn" [routerLink]="['/register']"><fa-icon [icon]="faHeart"></fa-icon>Sign up</a>

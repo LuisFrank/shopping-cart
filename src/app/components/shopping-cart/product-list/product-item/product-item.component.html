@@ -9,7 +9,8 @@
       <!-- <p class="card-text">{{ productItem.description}}</p>     -->
       <a [routerLink]="['/single-product/',productItem.id]"><h6 class="text-muted">{{productItem.name}}</h6></a>        
       <!-- <p>Finding perfect products</p>            -->
-      <strong class="text-muted">{{ productItem.price  |currency: "S/"}}</strong>
+      <div><strong class="text-muted">{{ productItem.price  |currency: "S/"}}</strong> o </div>
+      <div><strong class="text-muted">{{ productItem.points }}</strong> <small> puntos</small></div>
       
       <!-- <div class="btn-group">
         <button type="button" class="btn btn-sm btn-outline-secondary" (click)="addToCart()">Add</button>

@@ -9,10 +9,14 @@ nav{
 
     li:not(.active){
         a{
-            color: red;
+            color: var(--pupicat-color-azul);
         }        
           
        
+    }
+
+    li .active a{
+            color: var(--pupicat-color-amarillo);      
     }
     
 

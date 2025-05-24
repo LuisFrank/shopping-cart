@@ -2,6 +2,7 @@
 :root {
 	--pupicat-color-amarillo: #FFB600;
 	--pupicat-color-azul: #04333D;
+	--pupicat-color-azul-hover: #0A4B5A;
 	--pupicat-color-rosado: #EBB1CA;
 	--pupicat-color-rosado-transparente: rgba(235, 177, 202, 0.85);
 	--pupicat-color-verde: #6DE2D9;
@@ -67,14 +68,39 @@ a {
 }
 
 a:hover{
-    color: #7971ea;;
+    color: var(--pupicat-color-amarillo)!important;
+}
+
+.bg-pupicat-amarillo{
+	background-color: var(--pupicat-color-amarillo)!important;
+}
+
+.bg-pupicat-button{
+	background-color: var(--pupicat-color-azul);
+	border-color: var(--pupicat-color-azul);
+}
+
+.bg-pupicat-button-outline{
+	border-color: var(--pupicat-color-azul);
+	color: var(--pupicat-color-azul);
+}
+
+.bg-pupicat-button-outline:hover{
+	background-color: var(--pupicat-color-azul);
+	border-color: var(--pupicat-color-azul);
+}
+
+
+.bg-pupicat-button:hover{
+	background-color: var(--pupicat-color-azul-hover)	!important;
+	border-color: var(pupicat-color-azul-hover) !important;
 }
 
 // html, body { height: 100%; }
  body {  
     font-family: 'Gotham Light', sans-serif;
     -webkit-font-smoothing: antialiased;
-	font-smoothing: antialiased;
+	//font-smoothing: antialiased;
     color: var(--pupicat-color-azul);
  }
 

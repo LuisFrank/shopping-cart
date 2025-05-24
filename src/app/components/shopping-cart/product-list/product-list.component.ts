@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
 import { Product } from 'src/app/models/product';
 import { WishlistService } from 'src/app/services/wishlist.service';
+import def from 'ajv/dist/vocabularies/applicator/additionalItems';
 
 @Component({
   selector: 'app-product-list',
@@ -14,12 +15,20 @@ export class ProductListComponent implements OnInit {
   productList: Product[] = [];
   wishList: number[] = [];
   constructor(private productService: ProductService,
-              private wishListService: WishlistService) { }
+              private wishListService: WishlistService,
+              private eRef: ElementRef) { }
 
   ngOnInit(): void {
    this.loadProducts();
    this.loadWishList();
   
+  }
+
+  @HostListener('document:click', ['$event'])
+  handleClickOutside(event: Event) {
+    if (!this.eRef.nativeElement.contains(event.target)) {
+      this.dropdownReference = false;
+    }
   }
 
   loadProducts(){
@@ -60,7 +69,10 @@ export class ProductListComponent implements OnInit {
     case 'priceDesc':
       this.productList.sort((a, b) => b.price - a.price);
          this.dropdownReference = false;
-      break;
+           break;
+    default:
+      this.dropdownReference = false;
+     break;
   }
 }
 

@@ -42,9 +42,25 @@ docker build -t shopping-cart .
 docker run -d -it -p 80:80 shopping-cart
 
 #generar componente o servicio dentro de docker-compose
-#docker-compose run front-shopping-cart ng g service services/cartlocalstorage 
+docker-compose run front-shopping-cart ng g service services/cartlocalstorage 
 
 #JWT implementado
 https://www.freakyjolly.com/angular-json-web-token-authentication-tutorial-using-angular2-jwt/
 
 
+#Ruta de imagenes
+https://postimg.cc/0M3f0G80
+#Ruta de api productos
+https://mockapi.io/
+#colores
+--pupicat-color-amarillo: #FFB600;
+--pupicat-color-azul: #04333D;
+--pupicat-color-rosado: #EBB1CA;
+--pupicat-color-rosado-transparente: rgba(235, 177, 202, 0.85);
+--pupicat-color-verde: #6DE2D9;
+--pupicat-color-verde-hover: #42dace;
+
+## Para generar publicado  subdominio
+ng build --base-href /shopping-cart/
+## Para generar con dominio
+npx angular-cli-ghpages --dir=dist/shopping-cart

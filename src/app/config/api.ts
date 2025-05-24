@@ -1,7 +1,8 @@
 import { environment } from "src/environments/environment";
 
 //Front end
-export const baseUrl = environment.production ? 'https://api.shoppingcart.com': 'https://68203e5572e59f922ef81312.mockapi.io/tienda/v1'
+// export const baseUrl = environment.production ? 'https://api.shoppingcart.com': 'https://68203e5572e59f922ef81312.mockapi.io/tienda/v1'
+export const baseUrl = environment.production ? 'https://68203e5572e59f922ef81312.mockapi.io/tienda/v1': 'https://68203e5572e59f922ef81312.mockapi.io/tienda/v1'
 
 export const productsURl = baseUrl + '/products'
 export const singleProductURl = baseUrl + '/products/:id'
