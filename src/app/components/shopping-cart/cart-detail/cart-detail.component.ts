@@ -87,9 +87,24 @@ export class CartDetailComponent implements OnInit {
       this.calculateCartTotal();
       this.msg.sendMessageDownCart(cartItem); 
     }   
+
+
+
   }
 
+  goToWhatsApp() {
+    const numeroWhatsApp = '51902557639'; // <-- Coloca aquí el número destino (ej: código país + número)
+    let mensaje = `Hola, quiero confirmar mi pedido:\n\n`;
 
+    this.productsLS.forEach(product => {
+      mensaje += `• ${product.productName} - Cantidad: ${product.quantity} - Subtotal: S/ ${(
+        product.quantity * product.price
+      ).toFixed(2)}\n`;
+    });
 
+    mensaje += `\nTotal a pagar: S/ ${this.total.toFixed(2)}`;
 
+    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+    window.open(url, '_blank');
+  }
 }
