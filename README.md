@@ -43,6 +43,7 @@ docker run -d -it -p 80:80 shopping-cart
 
 #generar componente o servicio dentro de docker-compose
 docker-compose run front-shopping-cart ng g service services/cartlocalstorage 
+docker-compose run front-shopping-cart npm install ngx-owl-carousel-o --save
 
 #JWT implementado
 https://www.freakyjolly.com/angular-json-web-token-authentication-tutorial-using-angular2-jwt/

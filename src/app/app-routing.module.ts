@@ -12,7 +12,6 @@ import { SingleProductComponent } from './components/shopping-cart/single-produc
 import { ThankyouComponent } from './components/shopping-cart/thankyou/thankyou.component';
 import { AuthGuard } from './guards/auth.guard';
 
-
 const routes: Routes = [
   {
     path: 'home',

@@ -93,7 +93,7 @@ export class CartDetailComponent implements OnInit {
   }
 
   goToWhatsApp() {
-    const numeroWhatsApp = '51902557639'; // <-- Coloca aquí el número destino (ej: código país + número)
+    const numeroWhatsApp = '51902557637'; // <-- Coloca aquí el número destino (ej: código país + número)
     let mensaje = `Hola, quiero confirmar mi pedido:\n\n`;
 
     this.productsLS.forEach(product => {
@@ -104,7 +104,7 @@ export class CartDetailComponent implements OnInit {
 
     mensaje += `\nTotal a pagar: S/ ${this.total.toFixed(2)}`;
 
-    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
-    window.open(url, '_blank');
+    const url = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensaje)}`;
+window.open(url, '_blank');
   }
 }
