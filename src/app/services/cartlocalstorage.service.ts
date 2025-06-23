@@ -18,7 +18,7 @@ export class CartlocalstorageService {
     }
    }
 
-   addItem(product:Product){    
+   addItem(product:Product,quantitySingleProduct:any){    
 
      const ls:CartItem[] = this.getCartData();
      var cartItem = new CartItem(0,product,0,0)
@@ -29,16 +29,32 @@ export class CartlocalstorageService {
      }
 
      if(exist){
-        exist.quantity++;
+        if(quantitySingleProduct != undefined && quantitySingleProduct != null){
+            exist.quantity += quantitySingleProduct;
+        }else{
+            exist.quantity++;
+        }
+   
         this.setCartData(ls)      
      }else{
        if(ls){
-        cartItem.quantity = 1;
+         if(quantitySingleProduct != undefined && quantitySingleProduct != null){
+             cartItem.quantity = quantitySingleProduct;
+         }else{
+            cartItem.quantity = 1;
+         }
+        
         cartItem.order =  ls.length + 1;
         const newData = [...ls,cartItem];
         this.setCartData(newData);
        }else{
-        cartItem.quantity = 1;
+        if(quantitySingleProduct != undefined && quantitySingleProduct != null){
+            cartItem.quantity = quantitySingleProduct;
+        }else{
+            cartItem.quantity = 1;
+        }
+    
+
         cartItem.order = 1;
         this.placeholder.push(cartItem);
         this.setCartData(this.placeholder);       

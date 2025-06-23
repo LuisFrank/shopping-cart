@@ -61,7 +61,9 @@ https://mockapi.io/
 --pupicat-color-verde: #6DE2D9;
 --pupicat-color-verde-hover: #42dace;
 
-## Para generar publicado  subdominio
+## Para generar publicado  subdominio. Sin nombre
+ng build --base-href /
+## Para generar con dominio. Con nombre
 ng build --base-href /shopping-cart/
-## Para generar con dominio
+
 npx angular-cli-ghpages --dir=dist/shopping-cart

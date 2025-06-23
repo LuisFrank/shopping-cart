@@ -1,7 +1,7 @@
 
 <div class="container pb-5 mb-5">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6"  #productImage>
             <img [src]="product.imageUrl"   width="100%" class="bd-placeholder-img card-img-top" />
         </div>
         <div class="col-md-6">
@@ -35,11 +35,11 @@
                 <div class="col-xs-6 col-sm-6 col-xl-4 col-lg-6">      
                     <div class="input-group mb-3 ">
                         <div class="input-group-prepend">
-                            <button class="btn btn-outline-primary js-btn-minus bg-pupicat-button-outline" type="button">−</button>
+                            <button class="btn btn-outline-primary js-btn-minus bg-pupicat-button-outline" (click)="downQuantity(product)" type="button">−</button>
                         </div>
-                        <input type="text" class="form-control text-center" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                        <input type="text" class="form-control text-center"  value="{{singleProductQuantity}}"  aria-label="Example text with button addon" aria-describedby="button-addon1" readonly>
                         <div class="input-group-append">
-                            <button class="btn btn-outline-primary js-btn-plus bg-pupicat-button-outline" type="button">+</button>
+                            <button class="btn btn-outline-primary js-btn-plus bg-pupicat-button-outline" (click)="upQuantity(product)" type="button">+</button>
                         </div>
                     </div>   
                     </div>       
@@ -57,4 +57,3 @@
     </div>
 </div>
 
-<app-modal></app-modal>

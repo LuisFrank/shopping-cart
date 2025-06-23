@@ -16,10 +16,11 @@ import { CartItem } from 'src/app/models/cart-item';
 export class SingleProductComponent implements OnInit {
 
   @ViewChild("exampleModal")  myModal!: ElementRef;
+  @ViewChild('productImage') productImageRef!: ElementRef;
 
   product_id:any;
   product:Product = new Product();
-  
+  singleProductQuantity:number = 1;  
 
   constructor(private activeRoute: ActivatedRoute,
     private msg: MessengerService, 
@@ -42,6 +43,13 @@ export class SingleProductComponent implements OnInit {
     this.productService.getSingleProduct(this.product_id).subscribe(product => {
         this.product = product
         console.log("product",this.product);
+
+         // Scroll al elemento de la imagen, con un pequeño timeout para asegurar render
+        setTimeout(() => {
+          if (this.productImageRef) {
+            this.productImageRef.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
       }
     );
   }
@@ -55,10 +63,38 @@ export class SingleProductComponent implements OnInit {
     // })
     // console.log("local storage antesss",this.cartLocalStorageService.getCartData());
   
-    this.cartLocalStorageService.addItem(this.product);
+    this.cartLocalStorageService.addItem(this.product,this.singleProductQuantity);
     this.msg.sendMessage(this.product);    
     console.log("local storage",this.cartLocalStorageService.getCartData());
     return false;
+  }
+
+  upQuantity(cartItem:any){
+    console.log("upQuantity",cartItem);
+    this.singleProductQuantity = this.singleProductQuantity + 1;
+    // this.cartLocalStorageService.UpQuantity(cartItem);
+
+    // this.loadCardItemsLocalStorage();
+    // this.calculateCartTotal();
+    
+    // this.msg.sendMessageDownCart(cartItem);  
+  }
+
+  downQuantity(cartItem:any){
+    console.log("upQuantity",cartItem);
+
+    if(this.singleProductQuantity > 1){
+          this.singleProductQuantity = this.singleProductQuantity - 1;
+    }
+
+    // if(cartItem.quantity > 0){
+    //   this.cartLocalStorageService.DownQuantity(cartItem);
+
+    //   // this.loadCardItemsLocalStorage();
+    //   // this.calculateCartTotal();
+      
+    //   this.msg.sendMessageDownCart(cartItem); 
+    // }   
   }
 
 }

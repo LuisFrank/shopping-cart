@@ -1,10 +1,17 @@
-.carousel-container {
-  height: 300px;
-  overflow: hidden;
-}
-
-.carousel-inner {
-  height: 250px; /* Ajusta a la altura que desees */
-}
 
 
+// .carousel-inner {
+//   height: 250px; /* Ajusta a la altura que desees */
+// }
+
+
+  .carousel-inner img {
+    height: 300px; /* Altura fija estándar */
+    object-fit: cover; /* Ajusta la imagen manteniendo proporción y recorta lo sobrante */
+  }
+
+  @media (max-width: 768px) {
+    .carousel-inner img {
+      height: 250px; /* Altura adaptativa para móviles */
+    }
+  }
